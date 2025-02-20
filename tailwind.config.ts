@@ -12,6 +12,10 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        sans: ["Montserrat", "sans-serif"],
+        jumbotron: ["Anton", "sans-serif"],
+      },
     },
   },
   plugins: [],
