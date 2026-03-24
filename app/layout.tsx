@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Anton, Montserrat } from "next/font/google";
+import { Anton, Montserrat, Six_Caps } from "next/font/google";
 import "./globals.css";
 
 const anton = Anton({
@@ -12,6 +12,12 @@ const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["400", "700"], // Load specific weights
   variable: "--font-montserrat",
+});
+
+const sixCaps = Six_Caps({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-six-caps",
 });
 
 export const metadata: Metadata = {
@@ -27,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${anton.variable} ${montserrat.variable} antialiased`}
+        className={`${anton.variable} ${montserrat.variable} ${sixCaps.variable} antialiased`}
       >
         {children}
       </body>

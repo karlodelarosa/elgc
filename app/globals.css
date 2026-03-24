@@ -223,3 +223,15 @@ html, body {
 .description-text-white {
   color: #fff !important; 
 }
+
+@keyframes color-shift {
+  0% { color: #f472b6; }       /* pink-400 */
+  25% { color: #a78bfa; }      /* purple-400 */
+  50% { color: #22d3ee; }      /* cyan-400 */
+  75% { color: #f472b6; }      /* back to pink */
+  100% { color: #f472b6; }
+}
+
+.animate-color-shift {
+  animation: color-shift 30s ease-in-out infinite;
+}
