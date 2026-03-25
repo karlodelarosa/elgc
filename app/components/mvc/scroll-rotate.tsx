@@ -32,18 +32,20 @@ const contentSections = [
 ];
 
 const ScrollRotate = () => {
-  const mainSectionRef = useRef(null);
-  const contentWrapperRef = useRef(null);
-  const centerCoreRef = useRef(null); // *** NEW REF for Center Core Text ***
+  const mainSectionRef = useRef<HTMLDivElement>(null);
+  const contentWrapperRef = useRef<HTMLDivElement>(null);
+  const centerCoreRef = useRef<HTMLDivElement>(null);
 
   const numSections = contentSections.length;
   const SCROLL_SPEED_MULTIPLIER = 2.0;
   const totalScrollDistanceVH = numSections * 100 * SCROLL_SPEED_MULTIPLIER;
   const contentTravel = (numSections - 1) * 100;
 
-  if (typeof window === 'undefined') return null; // or skip code
-
   useEffect(() => {
+    // Client-only check
+    if (typeof window === 'undefined') return;
+
+    // Kill previous ScrollTriggers to avoid duplicates
     ScrollTrigger.getAll().forEach((t) => t.kill());
 
     if (!mainSectionRef.current || !contentWrapperRef.current || !centerCoreRef.current) {
@@ -52,16 +54,15 @@ const ScrollRotate = () => {
 
     const mainSection = mainSectionRef.current;
     const contentWrapper = contentWrapperRef.current;
-    const centerCore = centerCoreRef.current; // Get the center core element
-    const items = gsap.utils.toArray(contentWrapper.children);
+    const centerCore = centerCoreRef.current;
 
-    // Find all dynamic text elements within the scrolling content for color inversion
+    const items = gsap.utils.toArray<HTMLElement>(contentWrapper.children);
+
     const allTextElements = gsap.utils.toArray([
       ...items.map((item) => item.querySelector('h2')),
       ...items.map((item) => item.querySelector('p')),
     ]);
 
-    // --- Master ScrollTimeline ---
     const masterScroll = gsap.timeline({
       scrollTrigger: {
         trigger: mainSection,
@@ -72,34 +73,29 @@ const ScrollRotate = () => {
       },
     });
 
-    // 1. INVERSION ANIMATION (Background & Text Colors)
-
-    // A. Background Inversion (Fast initial transition to white/light)
+    // --- Background & Text Color Animations ---
     masterScroll.to(
       mainSection,
       {
-        backgroundColor: '#f5f5f5', // Light Off-White
-        boxShadow: '0 0 200px 50px rgba(255, 255, 200, 0.8) inset', // Inner glow for luminous feel
+        backgroundColor: '#f5f5f5',
+        boxShadow: '0 0 200px 50px rgba(255, 255, 200, 0.8) inset',
         duration: 0.1,
         ease: 'power2.in',
       },
       0,
     );
 
-    // B. Text Inversion (Simultaneously switch text to dark gray/black)
-    // Darken the fixed center core text
     masterScroll.to(
       centerCore,
       {
-        color: '#222222', // Dark Gray/Black
-        textShadow: '0 0 0px rgba(0, 0, 0, 0)', // Remove glow effect
+        color: '#222222',
+        textShadow: '0 0 0px rgba(0,0,0,0)',
         duration: 0.1,
         ease: 'power2.in',
       },
       0,
     );
 
-    // Darken the scrolling content text
     masterScroll.to(
       allTextElements,
       {
@@ -110,31 +106,28 @@ const ScrollRotate = () => {
       0,
     );
 
-    // 2. STAGE 2 & 3: Maintain the light background but shift the hue/shadow for visual interest
-
-    // Stage 2: Subtle shift towards Cyan/Blue shadow (0.1 to 0.6)
+    // Stage 2 & 3: Glow shift
     masterScroll.to(
       mainSection,
       {
-        boxShadow: '0 0 200px 50px rgba(44, 206, 221, 0.4) inset', // Cyan/Blue glow
+        boxShadow: '0 0 200px 50px rgba(44, 206, 221, 0.4) inset',
         duration: 0.5,
         ease: 'power1.inOut',
       },
       0.1,
     );
 
-    // Stage 3: Subtle shift towards Gold/Orange shadow (0.6 to 1.0)
     masterScroll.to(
       mainSection,
       {
-        boxShadow: '0 0 200px 50px rgba(249, 115, 22, 0.4) inset', // Gold/Orange glow
+        boxShadow: '0 0 200px 50px rgba(249, 115, 22, 0.4) inset',
         duration: 0.4,
         ease: 'power2.out',
       },
       0.6,
     );
 
-    // 3. CONTENT MOVEMENT (Vertical Slide of the wrapper)
+    // Content vertical slide
     masterScroll.to(
       contentWrapper,
       {
@@ -144,56 +137,67 @@ const ScrollRotate = () => {
       0,
     );
 
-    // 4. ITEM ANIMATIONS (Opacity and Parallax) - Parallax logic remains correct
+    // Individual item animations
     items.forEach((item, index) => {
       const segmentStart = index / numSections;
       const segmentEnd = (index + 1) / numSections;
 
-      const title = item.querySelector('h2');
-      const description = item.querySelector('p');
+      const title = item.querySelector('h2') as HTMLElement | null;
+      const description = item.querySelector('p') as HTMLElement | null;
 
       const TITLE_PARALLAX_X = 100;
       const DESCRIPTION_PARALLAX_X = 50;
 
-      // ITEM ENTERING: Fade In, Parallax Leftward into place (x: 0)
+      // Animate item itself
       masterScroll.fromTo(
         item,
         { opacity: 0.3, y: '10vh' },
         { opacity: 1, y: '0vh', duration: 0.05, ease: 'power2.out' },
         segmentStart,
       );
-      masterScroll.fromTo(
-        title,
-        { x: TITLE_PARALLAX_X },
-        { x: 0, duration: 0.05, ease: 'power2.out' },
-        segmentStart,
-      );
-      masterScroll.fromTo(
-        description,
-        { x: DESCRIPTION_PARALLAX_X },
-        { x: 0, duration: 0.05, ease: 'power2.out' },
-        segmentStart,
-      );
 
-      // ITEM EXITING: Fade Out, Parallax Rightward out of place (x: +X)
+      if (title) {
+        masterScroll.fromTo(
+          title,
+          { x: TITLE_PARALLAX_X },
+          { x: 0, duration: 0.05, ease: 'power2.out' },
+          segmentStart,
+        );
+      }
+
+      if (description) {
+        masterScroll.fromTo(
+          description,
+          { x: DESCRIPTION_PARALLAX_X },
+          { x: 0, duration: 0.05, ease: 'power2.out' },
+          segmentStart,
+        );
+      }
+
+      // Exit animations
       masterScroll.to(
         item,
         { opacity: 0.3, y: '-10vh', duration: 0.05, ease: 'power2.in' },
         segmentEnd - 0.05,
       );
-      masterScroll.to(
-        title,
-        { x: TITLE_PARALLAX_X * 2, duration: 0.05, ease: 'power2.in' },
-        segmentEnd - 0.05,
-      );
-      masterScroll.to(
-        description,
-        { x: DESCRIPTION_PARALLAX_X * 2, duration: 0.05, ease: 'power2.in' },
-        segmentEnd - 0.05,
-      );
+
+      if (title) {
+        masterScroll.to(
+          title,
+          { x: TITLE_PARALLAX_X * 2, duration: 0.05, ease: 'power2.in' },
+          segmentEnd - 0.05,
+        );
+      }
+
+      if (description) {
+        masterScroll.to(
+          description,
+          { x: DESCRIPTION_PARALLAX_X * 2, duration: 0.05, ease: 'power2.in' },
+          segmentEnd - 0.05,
+        );
+      }
     });
 
-    // Cleanup
     return () => {
       masterScroll.scrollTrigger?.kill();
       ScrollTrigger.getAll().forEach((t) => t.kill());
@@ -203,7 +207,6 @@ const ScrollRotate = () => {
   return (
     <div className="scroll-rotate-wrapper">
       <section ref={mainSectionRef} className="pin-section">
-        {/* Fixed Center Title (Adding ref) */}
         <div className="center-wrapper">
           <div ref={centerCoreRef} className="center-core">
             Divine
@@ -212,11 +215,10 @@ const ScrollRotate = () => {
           </div>
         </div>
 
-        {/* Scrolling Text Content */}
         <div className="scrolling-content-container">
           <div ref={contentWrapperRef} className="content-wrapper">
             {contentSections.map((section, index) => (
-              <div key={index} className="content-item">
+              <div key={`scroll-item-${index}`} className="content-item">
                 <div className="content-card">
                   <span style={{ color: section.color }}>{`0${index + 1}`}</span>
                   <h2>{section.title}</h2>
