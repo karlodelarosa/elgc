@@ -32,7 +32,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${anton.variable} ${montserrat.variable} ${sixCaps.variable} antialiased`}>
+      <body
+        suppressHydrationWarning
+        className={`${anton.variable} ${montserrat.variable} ${sixCaps.variable} antialiased`}
+      >
         {children}
       </body>
     </html>

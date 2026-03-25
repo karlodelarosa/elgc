@@ -5,6 +5,15 @@ import { Music2, ExternalLink } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
+function mulberry32(seed: number) {
+  return function () {
+    let t = (seed += 0x6d2b79f5);
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
 export function Music() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const featuredRef = useRef<HTMLDivElement>(null);
@@ -222,7 +231,7 @@ export function Music() {
                 key={i}
                 className="wave-bar flex-1 bg-gradient-to-t from-purple-500 to-pink-500 rounded-full"
                 style={{
-                  height: `${30 + Math.random() * 70}%`,
+                  height: `${30 + mulberry32(2026 + i * 97)() * 70}%`,
                   transformOrigin: 'bottom',
                 }}
               ></div>

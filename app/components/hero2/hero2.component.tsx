@@ -6,6 +6,15 @@ import { QuantumButton } from '@/components/button';
 
 gsap.registerPlugin(ScrollTrigger);
 
+function mulberry32(seed: number) {
+  return function () {
+    let t = (seed += 0x6d2b79f5);
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
 export function Hero2() {
   const heroRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -134,17 +143,17 @@ export function Hero2() {
           key={i}
           className="absolute w-1 h-1 rounded-full bg-white"
           style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
+            left: `${mulberry32(1337 + i * 101)() * 100}%`,
+            top: `${mulberry32(7331 + i * 131)() * 100}%`,
           }}
           animate={{
             y: [0, -100, 0],
             opacity: [0, 1, 0],
           }}
           transition={{
-            duration: Math.random() * 5 + 3,
+            duration: mulberry32(9001 + i * 71)() * 5 + 3,
             repeat: Infinity,
-            delay: Math.random() * 5,
+            delay: mulberry32(4242 + i * 97)() * 5,
             ease: 'easeInOut',
           }}
         />

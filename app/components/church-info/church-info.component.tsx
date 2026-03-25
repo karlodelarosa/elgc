@@ -43,7 +43,7 @@ export function ChurchIntro() {
       <div className="md:w-1/2 w-full h-1/2 md:h-full relative flex items-center justify-center">
         {/* Previous Image */}
         <motion.img
-          key={current}
+          key={`current-${current}`}
           src={locations[current].image}
           alt={locations[current].label}
           className="absolute w-full h-full object-cover z-10"
@@ -52,7 +52,7 @@ export function ChurchIntro() {
           transition={{ duration: 1.2 }}
         />
         <motion.img
-          key={prev}
+          key={`prev-${prev}`}
           src={locations[prev].image}
           alt={locations[prev].label}
           className="absolute w-full h-full object-cover z-0"
