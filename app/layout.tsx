@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Anton, Montserrat, Six_Caps } from 'next/font/google';
+import { TopMenu } from '@/components/menu/top-menu.component';
 import './globals.css';
 
 const anton = Anton({
@@ -36,6 +37,7 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${anton.variable} ${montserrat.variable} ${sixCaps.variable} antialiased`}
       >
+        <TopMenu />
         {children}
       </body>
     </html>
