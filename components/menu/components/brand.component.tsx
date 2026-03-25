@@ -1,6 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
+import Link from 'next/link';
 
 export type BrandProps = {
   className?: string;
@@ -8,7 +9,7 @@ export type BrandProps = {
 
 export function Brand({ className }: BrandProps) {
   return (
-    <>
+    <Link href="/">
       {/* Mobile/Tablet */}
       <div className={cn('pt-3 text-center xl:hidden', className)}>
         <h1 className="text-sm md:text-base tracking-[.50em] uppercase font-bold bg-gradient-to-r from-cyan-300 via-blue-300 to-purple-300 bg-clip-text text-transparent">
@@ -29,6 +30,6 @@ export function Brand({ className }: BrandProps) {
           <span className="hidden 2xl:inline">Emmanuel&apos;s Living Gospel Church</span>
         </h1>
       </div>
-    </>
+    </Link>
   );
 }
