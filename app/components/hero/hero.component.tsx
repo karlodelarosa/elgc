@@ -65,25 +65,22 @@ export default function Hero() {
       {[...Array(7)].map((_, i) => (
         <div
           key={i}
-          ref={(el) => (orbRefs.current[i] = el!)}
+          ref={(el) => {
+            if (el) orbRefs.current[i] = el;
+          }}
           className="absolute rounded-full blur-3xl opacity-65"
           style={{
-            // 🎨 Gradient color palette — elegant & consistent
             background: [
-              'radial-gradient(circle at 30% 30%, #a855f7, transparent 70%)', // Purple
-              'radial-gradient(circle at 30% 30%, #ec4899, transparent 70%)', // Pink
-              'radial-gradient(circle at 30% 30%, #f97316, transparent 70%)', // Orange
-              'radial-gradient(circle at 30% 30%, #ef4444, transparent 70%)', // Red
-              'radial-gradient(circle at 30% 30%,rgb(44, 206, 221), transparent 70%)', // Cyan
-              'radial-gradient(circle at 30% 30%, #c026d3, transparent 70%)', // Deep violet
-              'radial-gradient(circle at 30% 30%, #fb7185, transparent 70%)', // Soft pink-red
+              'radial-gradient(circle at 30% 30%, #a855f7, transparent 70%)',
+              'radial-gradient(circle at 30% 30%, #ec4899, transparent 70%)',
+              'radial-gradient(circle at 30% 30%, #f97316, transparent 70%)',
+              'radial-gradient(circle at 30% 30%, #ef4444, transparent 70%)',
+              'radial-gradient(circle at 30% 30%,rgb(44, 206, 221), transparent 70%)',
+              'radial-gradient(circle at 30% 30%, #c026d3, transparent 70%)',
+              'radial-gradient(circle at 30% 30%, #fb7185, transparent 70%)',
             ][i % 7],
-
-            // ⚙️ Orb size (randomized)
-            width: 580 + Math.random() * 220, // 280–500px
+            width: 580 + Math.random() * 220,
             height: 580 + Math.random() * 220,
-
-            // 💡 Blend & style
             mixBlendMode: 'screen',
           }}
         />
