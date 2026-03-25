@@ -3,11 +3,11 @@ import { useRef } from 'react';
 import { GradientHeading } from '@/components/heading-gradient';
 
 const identityTexts = [
-  "This is more than a church",
-  "This is a community",
-  "This is a movement",
-  "This is where lives are transformed",
-  ""
+  'This is more than a church',
+  'This is a community',
+  'This is a movement',
+  'This is where lives are transformed',
+  '',
 ];
 
 export function IdentitySection() {
@@ -26,18 +26,14 @@ export function IdentitySection() {
         {identityTexts.map((text, index) => {
           const start = index / identityTexts.length;
           const end = (index + 1) / identityTexts.length;
-          
+
           const opacity = useTransform(
             scrollYProgress,
             [start, start + 0.1, end - 0.1, end],
-            [0, 1, 1, 0.3]
+            [0, 1, 1, 0.3],
           );
-          
-          const y = useTransform(
-            scrollYProgress,
-            [start, end],
-            [50, -50]
-          );
+
+          const y = useTransform(scrollYProgress, [start, end], [50, -50]);
 
           return (
             <motion.h3
@@ -45,9 +41,7 @@ export function IdentitySection() {
               style={{ opacity, y }}
               className="text-4xl md:text-6xl lg:text-7xl text-white text-center tracking-tight"
             >
-              <GradientHeading>
-              {text}
-              </GradientHeading>
+              <GradientHeading>{text}</GradientHeading>
             </motion.h3>
           );
         })}

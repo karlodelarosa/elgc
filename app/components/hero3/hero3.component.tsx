@@ -23,13 +23,13 @@ export function HeroCinematicELGC() {
       gsap.fromTo(
         initialsRef.current,
         { opacity: 0, scale: 0.8 },
-        { opacity: 1, scale: 1, duration: 1.8, ease: 'power4.out' }
+        { opacity: 1, scale: 1, duration: 1.8, ease: 'power4.out' },
       );
 
       gsap.fromTo(
         nameRef.current,
         { opacity: 0, y: 40 },
-        { opacity: 1, y: 0, delay: 0.4, duration: 1.2, ease: 'power3.out' }
+        { opacity: 1, y: 0, delay: 0.4, duration: 1.2, ease: 'power3.out' },
       );
     }, heroRef);
 
@@ -40,11 +40,11 @@ export function HeroCinematicELGC() {
     const rect = heroRef.current?.getBoundingClientRect();
     if (!rect) return;
 
-    const x = (e.clientX - rect.left) - rect.width / 2;
-    const y = (e.clientY - rect.top) - rect.height / 2;
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
 
-    mouseX.set(x / (rect.width / 2) * 100);
-    mouseY.set(y / (rect.height / 2) * 100);
+    mouseX.set((x / (rect.width / 2)) * 100);
+    mouseY.set((y / (rect.height / 2)) * 100);
   };
 
   return (
@@ -86,8 +86,7 @@ export function HeroCinematicELGC() {
           ref={initialsRef}
           className="font-black text-[16rem] md:text-[20rem] lg:text-[24rem] tracking-tight bg-clip-text text-transparent"
           style={{
-            backgroundImage:
-              'linear-gradient(90deg, #a78bfa 0%, #f472b6 50%, #fb923c 100%)',
+            backgroundImage: 'linear-gradient(90deg, #a78bfa 0%, #f472b6 50%, #fb923c 100%)',
             perspective: '1000px',
           }}
         >
@@ -106,8 +105,7 @@ export function HeroCinematicELGC() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background:
-            'radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.9) 100%)',
+          background: 'radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.9) 100%)',
         }}
       />
     </section>

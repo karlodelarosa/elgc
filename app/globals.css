@@ -4,34 +4,45 @@
 @tailwind utilities;
 
 /* --- Base Layout & Colors (Deep Dark Foundation) --- */
-html, body {
+html,
+body {
   background-color: #0a0a0a; /* Deep Black Base */
   margin: 0;
   padding: 0;
-  overflow-x: hidden; 
+  overflow-x: hidden;
 }
 
 /* 2. The pinned container that holds all slides */
 .horizontal-container {
   display: flex;
-  flex-direction: row; 
-  height: 100vh;      
-  width: auto;        
+  flex-direction: row;
+  height: 100vh;
+  width: auto;
   background-color: #0a0a0a; /* Ensure the main container is deep black */
   position: relative; /* CRITICAL for positioning the background glow */
 }
 
 /* 3. Individual slide styling */
 .slide {
-  flex-shrink: 0;         
-  width: 100vw;           
-  height: 100vh;          
+  flex-shrink: 0;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  color: #f3f4f6; 
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+
+  color: #f3f4f6;
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    Arial,
+    'Noto Sans',
+    sans-serif;
   box-sizing: border-box;
   overflow: hidden;
   background-color: transparent; /* Slides are now transparent to show the dark container */
@@ -41,20 +52,20 @@ html, body {
 /* 4. The inner content for parallax (Immersive, big fonts) */
 .content-box {
   padding: 40px;
-  max-width: 900px; 
+  max-width: 900px;
   text-align: left;
 }
 .content-box h2 {
-  font-size: 6rem; 
-  font-weight: 800; 
+  font-size: 6rem;
+  font-weight: 800;
   margin-bottom: 1rem;
   /* Use a lighter text-shadow for a subtle float effect */
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.1); 
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
 .content-box p {
-  font-size: 2rem; 
+  font-size: 2rem;
   line-height: 1.4;
-  font-weight: 300; 
+  font-weight: 300;
 }
 
 /* --- NEW: Background Glow Element Styling --- */
@@ -67,12 +78,16 @@ html, body {
   transform: translateY(-50%);
   z-index: 1; /* Positioned below the slides/text */
   /* Combine your preferred neon colors into a heavily blurred gradient */
-  background: radial-gradient(circle at 50% 50%, #a855f7 0%, #2ccedd 40%, transparent 70%); /* Purple/Cyan blend */
+  background: radial-gradient(
+    circle at 50% 50%,
+    #a855f7 0%,
+    #2ccedd 40%,
+    transparent 70%
+  ); /* Purple/Cyan blend */
   filter: blur(250px); /* Massive blur for an atmospheric, glowing effect */
   opacity: 0.2; /* Low opacity for subtlety */
   pointer-events: none; /* Ignore mouse events */
 }
-
 
 /* 5. The Pusher Section */
 /* .pusher-section {
@@ -80,18 +95,19 @@ html, body {
   background-color: #0a0a0a; 
 } */
 
-
 /* =========================== */
 .pin-section {
   position: relative;
   height: 100vh;
   width: 100vw;
-  display: grid; 
-  grid-template-columns: 50% 50%; 
+  display: grid;
+  grid-template-columns: 50% 50%;
   pointer-events: none;
   /* Initial dark background (will animate to #1a0f2c and glow) */
-  background-color: #0a0a0a; 
-  transition: background-color 0.8s ease-out, box-shadow 0.8s ease-out; /* Smooth transitions */
+  background-color: #0a0a0a;
+  transition:
+    background-color 0.8s ease-out,
+    box-shadow 0.8s ease-out; /* Smooth transitions */
 }
 
 /* 2. CENTER OBJECT STYLING (Left Grid Column) */
@@ -105,14 +121,16 @@ html, body {
   justify-content: center;
   align-items: center;
   pointer-events: none;
-  z-index: 50; 
+  z-index: 50;
 }
 
 .center-object {
   width: 500px;
   height: 500px;
   border-radius: 50%;
-  box-shadow: 0 0 50px rgba(168, 85, 247, 0.15), 0 0 100px rgba(44, 206, 221, 0.1); 
+  box-shadow:
+    0 0 50px rgba(168, 85, 247, 0.15),
+    0 0 100px rgba(44, 206, 221, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   justify-content: center;
@@ -130,16 +148,16 @@ html, body {
 
 /* 3. SCROLLING CONTAINER (Right Grid Column) */
 .scrolling-content-container {
-    grid-column: 2 / 3; /* Occupies the right grid cell */
-    position: relative;
-    height: 100vh;
-    overflow: hidden; /* CRITICAL: Hides content items that are stacked outside the viewport */
-    pointer-events: auto; /* Allows content interaction */
+  grid-column: 2 / 3; /* Occupies the right grid cell */
+  position: relative;
+  height: 100vh;
+  overflow: hidden; /* CRITICAL: Hides content items that are stacked outside the viewport */
+  pointer-events: auto; /* Allows content interaction */
 }
 
 .content-wrapper {
   /* Position absolute so GSAP can move it vertically within its 100vh parent */
-  position: absolute; 
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -154,10 +172,10 @@ html, body {
 
 .content-item {
   /* Each item is full height, so they stack up to (Num * 100vh) tall */
-  height: 100vh; 
+  height: 100vh;
   width: 100%;
   display: flex;
-  justify-content: flex-start; 
+  justify-content: flex-start;
   align-items: center;
   pointer-events: auto; /* Re-enable pointer events for text content */
 }
@@ -167,7 +185,7 @@ html, body {
   padding: 40px;
   margin-left: 0; /* Clear previous margin-right */
   /* Glass/Subtle Dark Card Style */
-  background: rgba(10, 10, 10, 0.6); 
+  background: rgba(10, 10, 10, 0.6);
   backdrop-filter: blur(10px);
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -185,7 +203,7 @@ html, body {
 
 .indicator-arm {
   position: absolute;
-  top: 0; 
+  top: 0;
   left: 50%; /* Position at the top center of the circle */
   transform: translateX(-50%);
   width: 2px; /* Thin line */
@@ -205,12 +223,11 @@ html, body {
 
 /* --- NEW CSS FOR THE LIGHTBULB EFFECT --- */
 
-
 /* Style for the center text behind the lightbulb */
 .center-core {
   /* Move text down so it doesn't cover the bulb */
-  margin-top: 150px; 
-  font-size: 2.5rem; 
+  margin-top: 150px;
+  font-size: 2.5rem;
   font-weight: 800;
   line-height: 1.2;
   text-align: center;
@@ -221,15 +238,25 @@ html, body {
 }
 
 .description-text-white {
-  color: #fff !important; 
+  color: #fff !important;
 }
 
 @keyframes color-shift {
-  0% { color: #f472b6; }       /* pink-400 */
-  25% { color: #a78bfa; }      /* purple-400 */
-  50% { color: #22d3ee; }      /* cyan-400 */
-  75% { color: #f472b6; }      /* back to pink */
-  100% { color: #f472b6; }
+  0% {
+    color: #f472b6;
+  } /* pink-400 */
+  25% {
+    color: #a78bfa;
+  } /* purple-400 */
+  50% {
+    color: #22d3ee;
+  } /* cyan-400 */
+  75% {
+    color: #f472b6;
+  } /* back to pink */
+  100% {
+    color: #f472b6;
+  }
 }
 
 .animate-color-shift {

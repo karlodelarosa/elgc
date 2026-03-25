@@ -1,6 +1,6 @@
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import { Calendar, Clock, Users } from "lucide-react";
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
+import { Calendar, Clock, Users } from 'lucide-react';
 
 export function Services() {
   const ref = useRef(null);
@@ -8,53 +8,46 @@ export function Services() {
 
   const services = [
     {
-      name: "Sunday Worship",
-      day: "Sunday",
-      time: "9:00 AM",
-      description:
-        "Our main weekly worship gathering with praise, prayer, and preaching.",
+      name: 'Sunday Worship',
+      day: 'Sunday',
+      time: '9:00 AM',
+      description: 'Our main weekly worship gathering with praise, prayer, and preaching.',
       highlight: true,
     },
     {
-      name: "Sunday School (Children)",
-      day: "Sunday",
-      time: "9:00 AM",
-      description:
-        "Bible learning and fun activities for children during the Sunday service.",
+      name: 'Sunday School (Children)',
+      day: 'Sunday',
+      time: '9:00 AM',
+      description: 'Bible learning and fun activities for children during the Sunday service.',
     },
     {
-      name: "Youth Service",
-      day: "Friday",
-      time: "7:00 PM",
-      description:
-        "A gathering for youth with worship, teaching, and fellowship.",
+      name: 'Youth Service',
+      day: 'Friday',
+      time: '7:00 PM',
+      description: 'A gathering for youth with worship, teaching, and fellowship.',
     },
     {
-      name: "Ladies Fellowship",
-      day: "Thursday",
-      time: "5:00 PM",
-      description: "Encouragement, prayer, and fellowship for women.",
+      name: 'Ladies Fellowship',
+      day: 'Thursday',
+      time: '5:00 PM',
+      description: 'Encouragement, prayer, and fellowship for women.',
     },
     {
-      name: "Mens Fellowship",
-      day: "Sunday",
-      time: "5:00 PM",
-      description: "A time for men to grow spiritually together.",
+      name: 'Mens Fellowship',
+      day: 'Sunday',
+      time: '5:00 PM',
+      description: 'A time for men to grow spiritually together.',
     },
     {
-      name: "Young Professionals",
-      day: "Every 3rd Sunday",
-      time: "After Service",
-      description:
-        "Community and discussions for young working adults.",
+      name: 'Young Professionals',
+      day: 'Every 3rd Sunday',
+      time: 'After Service',
+      description: 'Community and discussions for young working adults.',
     },
   ];
 
   return (
-    <section
-      id="services"
-      className="py-28 bg-black text-white relative overflow-hidden"
-    >
+    <section id="services" className="py-28 bg-black text-white relative overflow-hidden">
       {/* Background blobs for immersive effect */}
       <div className="absolute inset-0">
         <div className="absolute top-16 left-12 w-[400px] h-[400px] bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
@@ -74,13 +67,10 @@ export function Services() {
             Weekly Gatherings
           </p>
 
-          <h2 className="text-4xl md:text-5xl mb-6 font-semibold">
-            Join Us This Week
-          </h2>
+          <h2 className="text-4xl md:text-5xl mb-6 font-semibold">Join Us This Week</h2>
 
           <p className="text-zinc-400 max-w-2xl mx-auto text-lg">
-            Our church meets throughout the week for worship, fellowship,
-            and spiritual growth.
+            Our church meets throughout the week for worship, fellowship, and spiritual growth.
           </p>
         </motion.div>
 
@@ -94,15 +84,13 @@ export function Services() {
               transition={{ delay: index * 0.08 }}
               className={`p-7 rounded-2xl border transition-transform duration-300 hover:scale-105 hover:shadow-lg ${
                 service.highlight
-                  ? "bg-gradient-to-br from-purple-700/40 to-indigo-700/40 border-purple-500"
-                  : "bg-zinc-900 border-zinc-800"
+                  ? 'bg-gradient-to-br from-purple-700/40 to-indigo-700/40 border-purple-500'
+                  : 'bg-zinc-900 border-zinc-800'
               }`}
             >
               <div className="flex justify-between items-start mb-4">
                 <div>
-                  <h3 className="text-xl font-semibold mb-1">
-                    {service.name}
-                  </h3>
+                  <h3 className="text-xl font-semibold mb-1">{service.name}</h3>
 
                   <div className="flex items-center gap-2 text-sm text-zinc-400">
                     <Calendar size={16} />
@@ -116,9 +104,7 @@ export function Services() {
                 </div>
               </div>
 
-              <p className="text-zinc-400 text-sm leading-relaxed">
-                {service.description}
-              </p>
+              <p className="text-zinc-400 text-sm leading-relaxed">{service.description}</p>
             </motion.div>
           ))}
         </div>

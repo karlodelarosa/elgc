@@ -43,23 +43,23 @@ export function ChurchIntro() {
       <div className="md:w-1/2 w-full h-1/2 md:h-full relative flex items-center justify-center">
         {/* Previous Image */}
         <motion.img
-  key={current}
-  src={locations[current].image}
-  alt={locations[current].label}
-  className="absolute w-full h-full object-cover z-10"
-  initial={{ opacity: 0 }}
-  animate={{ opacity: 1 }}
-  transition={{ duration: 1.2 }}
-/>
-<motion.img
-  key={prev}
-  src={locations[prev].image}
-  alt={locations[prev].label}
-  className="absolute w-full h-full object-cover z-0"
-  initial={{ opacity: 1 }}
-  animate={{ opacity: 0 }}
-  transition={{ duration: 1.2 }}
-/>
+          key={current}
+          src={locations[current].image}
+          alt={locations[current].label}
+          className="absolute w-full h-full object-cover z-10"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2 }}
+        />
+        <motion.img
+          key={prev}
+          src={locations[prev].image}
+          alt={locations[prev].label}
+          className="absolute w-full h-full object-cover z-0"
+          initial={{ opacity: 1 }}
+          animate={{ opacity: 0 }}
+          transition={{ duration: 1.2 }}
+        />
       </div>
 
       {/* Right column: Text */}
@@ -71,24 +71,30 @@ export function ChurchIntro() {
         <p className="text-4xl md:text-5xl text-zinc-300">
           meeting in a{' '}
           <AnimatePresence mode="wait">
-  <motion.span
-    key={locations[current].label}
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    exit={{ opacity: 0, y: -20 }}
-    transition={{ duration: 0.8 }}
-    className="inline-block bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent rounded-xl px-3 py-1"
-  >
-    {locations[current].label}
-  </motion.span>
-</AnimatePresence>
+            <motion.span
+              key={locations[current].label}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.8 }}
+              className="inline-block bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent rounded-xl px-3 py-1"
+            >
+              {locations[current].label}
+            </motion.span>
+          </AnimatePresence>
         </p>
       </div>
 
       {/* Background blobs */}
       <div className="absolute inset-0 pointer-events-none">
-      <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-purple-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '0s' }}></div>
-      <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-pink-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+        <div
+          className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-purple-500/20 rounded-full blur-3xl animate-pulse"
+          style={{ animationDelay: '0s' }}
+        ></div>
+        <div
+          className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-pink-500/20 rounded-full blur-3xl animate-pulse"
+          style={{ animationDelay: '0.5s' }}
+        ></div>
       </div>
     </section>
   );

@@ -30,10 +30,10 @@ export function Hero2() {
             duration: 1.2,
             ease: 'power4.out',
             transformOrigin: 'bottom center',
-          }
+          },
         );
       }
-  
+
       // Subtitle fade in
       if (subtitleRef.current) {
         gsap.fromTo(
@@ -48,10 +48,10 @@ export function Hero2() {
             duration: 1.5,
             delay: 0.8,
             ease: 'power3.out',
-          }
+          },
         );
       }
-  
+
       // Fade out on scroll
       gsap.to('.hero-content', {
         scrollTrigger: {
@@ -65,7 +65,7 @@ export function Hero2() {
         ease: 'none',
       });
     }, heroRef);
-  
+
     return () => ctx.revert();
   }, []);
 
@@ -93,7 +93,7 @@ export function Hero2() {
           ease: 'easeInOut',
         }}
       />
-      
+
       <motion.div
         className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full"
         style={{
@@ -165,52 +165,52 @@ export function Hero2() {
 
       {/* Inside your Hero2 component, just above your .hero-content div */}
 
-{/* ELGC Background Text */}
-<motion.div
-  className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
-  style={{
-    fontFamily: "var(--font-six-caps)",
-    fontWeight: 400,
-    fontSize: "calc(100vh + 8rem)",
-    lineHeight: 1,
-    color: "rgba(255,255,255,0.03)", // base translucent
-    textTransform: "uppercase",
-    letterSpacing: "-0.05em",
-    userSelect: "none",
-    whiteSpace: "nowrap",
-  }}
-  initial={{ opacity: 0 }}
-  animate={{ opacity: 1 }}
-  transition={{ duration: 2, delay: 0.5 }}
->
-  <span className="bg-gradient-to-r from-pink-400 md:hidden via-purple-400 to-cyan-400 bg-clip-text text-transparent animate-color-shift opacity-20">
-    ELGC
-  </span>
-  <span className="bg-gradient-to-r from-pink-400 hidden md:inline via-purple-400 to-cyan-400 bg-clip-text text-transparent animate-color-shift opacity-20">
-    ELGCHURCH
-  </span>
-  {/* <span className="opacity-10">HURCH</span> */}
-</motion.div>
+      {/* ELGC Background Text */}
+      <motion.div
+        className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
+        style={{
+          fontFamily: 'var(--font-six-caps)',
+          fontWeight: 400,
+          fontSize: 'calc(100vh + 8rem)',
+          lineHeight: 1,
+          color: 'rgba(255,255,255,0.03)', // base translucent
+          textTransform: 'uppercase',
+          letterSpacing: '-0.05em',
+          userSelect: 'none',
+          whiteSpace: 'nowrap',
+        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2, delay: 0.5 }}
+      >
+        <span className="bg-gradient-to-r from-pink-400 md:hidden via-purple-400 to-cyan-400 bg-clip-text text-transparent animate-color-shift opacity-20">
+          ELGC
+        </span>
+        <span className="bg-gradient-to-r from-pink-400 hidden md:inline via-purple-400 to-cyan-400 bg-clip-text text-transparent animate-color-shift opacity-20">
+          ELGCHURCH
+        </span>
+        {/* <span className="opacity-10">HURCH</span> */}
+      </motion.div>
 
       {/* Content */}
       <div className="absolute bottom-24 z-30 w-full text-center px-6 flex flex-col items-center gap-6">
-  <motion.p
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 1.2, delay: 0.6 }}
-    className="text-2xl md:text-3xl text-zinc-300"
-  >
-    Experience God's love in a community that welcomes you
-  </motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.6 }}
+          className="text-2xl md:text-3xl text-zinc-300"
+        >
+          Experience God's love in a community that welcomes you
+        </motion.p>
 
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 1.2, delay: 1 }}
-  >
-    <QuantumButton label="Enter Experience" />
-  </motion.div>
-</div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 1 }}
+        >
+          <QuantumButton label="Enter Experience" />
+        </motion.div>
+      </div>
 
       {/* Vignette */}
       <div

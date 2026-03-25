@@ -1,12 +1,9 @@
-import { MapPin, Mail, Phone, Facebook, Youtube } from "lucide-react";
-import { motion } from "framer-motion";
+import { MapPin, Mail, Phone, Facebook, Youtube } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export function ContactSection() {
   return (
-    <section
-      id="contact"
-      className="relative py-28 overflow-hidden bg-zinc-950 text-white"
-    >
+    <section id="contact" className="relative py-28 overflow-hidden bg-zinc-950 text-white">
       {/* Background blobs */}
       <div className="absolute top-0 -left-20 w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-0 -right-20 w-[600px] h-[600px] bg-pink-500/20 rounded-full blur-3xl animate-pulse"></div>
@@ -14,15 +11,11 @@ export function ContactSection() {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-20">
-          <p className="text-purple-400 tracking-widest uppercase text-sm mb-4">
-            Contact Us
-          </p>
-          <h2 className="text-4xl md:text-5xl font-semibold mb-6">
-            We'd Love to Hear From You
-          </h2>
+          <p className="text-purple-400 tracking-widest uppercase text-sm mb-4">Contact Us</p>
+          <h2 className="text-4xl md:text-5xl font-semibold mb-6">We'd Love to Hear From You</h2>
           <p className="text-zinc-400 max-w-2xl mx-auto text-lg">
-            Have questions or want to connect with our church community?
-            Send us a message or visit us in person.
+            Have questions or want to connect with our church community? Send us a message or visit
+            us in person.
           </p>
         </div>
 

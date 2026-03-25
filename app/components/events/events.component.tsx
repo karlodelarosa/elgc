@@ -9,14 +9,11 @@ export function UpcomingEvents() {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const prefersReducedMotion = window.matchMedia(
-      '(prefers-reduced-motion: reduce)'
-    ).matches;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (prefersReducedMotion) return;
 
     const ctx = gsap.context(() => {
-
       gsap.fromTo(
         '.timeline-line',
         { scaleY: 0, transformOrigin: 'top' },
@@ -28,7 +25,7 @@ export function UpcomingEvents() {
             trigger: sectionRef.current,
             start: 'top 70%',
           },
-        }
+        },
       );
 
       gsap.utils.toArray('.event-item').forEach((item: any, index) => {
@@ -54,7 +51,6 @@ export function UpcomingEvents() {
         ease: 'sine.inOut',
         stagger: 0.2,
       });
-
     }, sectionRef);
 
     return () => ctx.revert();
@@ -65,25 +61,27 @@ export function UpcomingEvents() {
       date: 'April 10',
       title: 'ALAB: Illuminate',
       description: 'A night of youth worship, creative arts, and powerful messages.',
-      image: 'https://plus.unsplash.com/premium_photo-1667113478916-7765913368f9?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      image:
+        'https://plus.unsplash.com/premium_photo-1667113478916-7765913368f9?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       link: '/events/alab-illuminate',
-      gradient: 'from-orange-500 to-pink-500'
+      gradient: 'from-orange-500 to-pink-500',
     },
     {
       date: 'May 6 – 9',
       title: 'DVBS (Daily Vacation Bible School)',
       description: 'Fun-filled days of learning, games, and Bible adventures for kids.',
       link: '/events/dvbs',
-      gradient: 'from-green-500 to-emerald-500'
+      gradient: 'from-green-500 to-emerald-500',
     },
     {
       date: 'June 13',
       title: 'Family Day',
       description: 'A celebration for families with food, games, and fellowship.',
-      image: 'https://plus.unsplash.com/premium_photo-1667113478916-7765913368f9?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      image:
+        'https://plus.unsplash.com/premium_photo-1667113478916-7765913368f9?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       link: '/events/family-day',
-      gradient: 'from-blue-500 to-purple-500'
-    }
+      gradient: 'from-blue-500 to-purple-500',
+    },
   ];
 
   return (
@@ -92,7 +90,6 @@ export function UpcomingEvents() {
       ref={sectionRef}
       className="relative py-32 bg-gradient-to-b from-black via-zinc-950 to-black overflow-hidden"
     >
-
       {/* grid background */}
       <div
         className="absolute inset-0 opacity-5"
@@ -104,7 +101,6 @@ export function UpcomingEvents() {
       />
 
       <div className="container mx-auto px-6 relative z-10">
-
         {/* Section Title */}
         <div className="text-center mb-24">
           <h2 className="text-5xl md:text-6xl bg-gradient-to-r from-orange-300 via-pink-300 to-purple-300 bg-clip-text text-transparent mb-4">
@@ -118,98 +114,94 @@ export function UpcomingEvents() {
 
         {/* Timeline */}
         <div className="relative max-w-5xl mx-auto">
-
           {/* Center line */}
           <div className="absolute left-1/2 top-0 bottom-0 w-1 -ml-px">
             <div className="timeline-line w-full h-full bg-gradient-to-b from-purple-500 via-pink-500 to-orange-500" />
           </div>
 
           <div className="space-y-24">
-  {events.map((event, index) => {
-    const isLeft = index % 2 === 0;
+            {events.map((event, index) => {
+              const isLeft = index % 2 === 0;
 
-    return (
-      <div key={index} className="event-item relative">
+              return (
+                <div key={index} className="event-item relative">
+                  {/* timeline dot */}
+                  <div className="timeline-dot absolute left-1/2 md:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full z-10 shadow-md shadow-purple-500/40" />
 
-        {/* timeline dot */}
-        <div className="timeline-dot absolute left-1/2 md:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full z-10 shadow-md shadow-purple-500/40" />
+                  {/* event card */}
+                  <div
+                    className={`relative w-full md:w-1/2 ${
+                      isLeft
+                        ? 'md:mr-auto md:pr-16 text-left md:text-right'
+                        : 'md:ml-auto md:pl-16 text-left'
+                    }`}
+                  >
+                    <div className="bg-zinc-900/80 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden">
+                      {event.image && (
+                        <div className="h-48 overflow-hidden">
+                          <img
+                            src={event.image}
+                            alt={event.title}
+                            className="w-full h-full object-cover hover:scale-105 transition duration-500"
+                          />
+                        </div>
+                      )}
 
-        {/* event card */}
-        <div
-          className={`relative w-full md:w-1/2 ${
-            isLeft
-              ? 'md:mr-auto md:pr-16 text-left md:text-right'
-              : 'md:ml-auto md:pl-16 text-left'
-          }`}
-        >
-          <div className="bg-zinc-900/80 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden">
+                      <div className="p-8">
+                        <div
+                          className={`inline-flex items-center gap-3 mb-3 ${isLeft ? 'md:flex-row-reverse' : ''}`}
+                        >
+                          <Calendar size={22} className="text-purple-400" />
+                          <span className="text-xl text-zinc-300">{event.date}</span>
+                        </div>
 
-            {event.image && (
-              <div className="h-48 overflow-hidden">
-                <img
-                  src={event.image}
-                  alt={event.title}
-                  className="w-full h-full object-cover hover:scale-105 transition duration-500"
-                />
-              </div>
-            )}
+                        <h3
+                          className={`text-3xl bg-gradient-to-r ${event.gradient} bg-clip-text text-transparent mb-3`}
+                        >
+                          {event.title}
+                        </h3>
 
-            <div className="p-8">
+                        <p className="text-zinc-400 mb-4">{event.description}</p>
 
-              <div className={`inline-flex items-center gap-3 mb-3 ${isLeft ? 'md:flex-row-reverse' : ''}`}>
-                <Calendar size={22} className="text-purple-400" />
-                <span className="text-xl text-zinc-300">{event.date}</span>
-              </div>
-
-              <h3 className={`text-3xl bg-gradient-to-r ${event.gradient} bg-clip-text text-transparent mb-3`}>
-                {event.title}
-              </h3>
-
-              <p className="text-zinc-400 mb-4">{event.description}</p>
-
-              {event.link && (
-                <a
-                  href={event.link}
-                  className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition"
-                >
-                  Learn More
-                  <ArrowRight size={18} />
-                </a>
-              )}
-
-            </div>
+                        {event.link && (
+                          <a
+                            href={event.link}
+                            className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition"
+                          >
+                            Learn More
+                            <ArrowRight size={18} />
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
-        </div>
-
-      </div>
-    );
-  })}
-</div>
-
         </div>
 
         {/* Extra Info */}
         <div className="grid md:grid-cols-3 gap-10 mt-32 max-w-5xl mx-auto">
-
           {[
             { icon: MapPin, title: 'Location', text: '123 Faith Street, Grace City' },
-            { icon: Coffee, title: 'Fellowship', text: 'Connect with others after every gathering' },
+            {
+              icon: Coffee,
+              title: 'Fellowship',
+              text: 'Connect with others after every gathering',
+            },
             { icon: Users, title: 'Community', text: 'Events for families, youth, and all ages' },
           ].map((info, i) => (
             <div key={i} className="text-center">
-
               <div className="inline-flex p-5 bg-purple-500/10 rounded-xl mb-5">
                 <info.icon size={36} className="text-purple-400" />
               </div>
 
               <h4 className="text-2xl text-white mb-2">{info.title}</h4>
               <p className="text-zinc-400">{info.text}</p>
-
             </div>
           ))}
-
         </div>
-
       </div>
     </section>
   );

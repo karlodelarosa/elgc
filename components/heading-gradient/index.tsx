@@ -1,7 +1,7 @@
-import React from "react";
-import { cn } from "@/lib/utils"; // optional if you use a cn utility
+import React from 'react';
+import { cn } from '@/lib/utils'; // optional if you use a cn utility
 
-import { JSX } from "react";
+import { JSX } from 'react';
 
 interface AnimatedHeadingProps {
   children: React.ReactNode;
@@ -12,7 +12,7 @@ interface AnimatedHeadingProps {
 
 export const GradientHeading = ({
   children,
-  headingAs = "h2",
+  headingAs = 'h2',
   className,
 }: AnimatedHeadingProps) => {
   const Comp: any = headingAs;
@@ -20,9 +20,9 @@ export const GradientHeading = ({
   return (
     <Comp
       className={cn(
-        "bg-gradient-to-r bg-clip-text text-transparent animate-gradient",
-        "from-pink-400 via-purple-400 to-cyan-400",
-        className
+        'bg-gradient-to-r bg-clip-text text-transparent animate-gradient',
+        'from-pink-400 via-purple-400 to-cyan-400',
+        className,
       )}
     >
       {children}

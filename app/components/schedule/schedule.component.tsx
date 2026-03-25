@@ -23,14 +23,14 @@ export function Schedule() {
             end: 'bottom 40%',
             scrub: 1,
           },
-        }
+        },
       );
 
       // Animate schedule items
       const items = gsap.utils.toArray('.schedule-item');
       items.forEach((item: any, index) => {
         const isLeft = index % 2 === 0;
-        
+
         gsap.from(item, {
           scrollTrigger: {
             trigger: item,
@@ -71,19 +71,43 @@ export function Schedule() {
           },
         });
       }
-
     }, sectionRef);
 
     return () => ctx.revert();
   }, []);
 
   const scheduleItems = [
-    { time: '9:00 AM', day: 'Sunday', title: 'Early Morning Service', gradient: 'from-orange-500 to-red-500' },
-    { time: '11:00 AM', day: 'Sunday', title: 'Main Worship Service', gradient: 'from-purple-500 to-pink-500' },
-    { time: '6:00 PM', day: 'Sunday', title: 'Evening Service', gradient: 'from-blue-500 to-indigo-500' },
-    { time: '7:00 PM', day: 'Wednesday', title: 'Midweek Bible Study', gradient: 'from-green-500 to-emerald-500' },
+    {
+      time: '9:00 AM',
+      day: 'Sunday',
+      title: 'Early Morning Service',
+      gradient: 'from-orange-500 to-red-500',
+    },
+    {
+      time: '11:00 AM',
+      day: 'Sunday',
+      title: 'Main Worship Service',
+      gradient: 'from-purple-500 to-pink-500',
+    },
+    {
+      time: '6:00 PM',
+      day: 'Sunday',
+      title: 'Evening Service',
+      gradient: 'from-blue-500 to-indigo-500',
+    },
+    {
+      time: '7:00 PM',
+      day: 'Wednesday',
+      title: 'Midweek Bible Study',
+      gradient: 'from-green-500 to-emerald-500',
+    },
     { time: '7:30 PM', day: 'Friday', title: 'Youth Night', gradient: 'from-cyan-500 to-blue-500' },
-    { time: '10:00 AM', day: 'Saturday', title: 'Prayer Gathering', gradient: 'from-pink-500 to-rose-500' },
+    {
+      time: '10:00 AM',
+      day: 'Saturday',
+      title: 'Prayer Gathering',
+      gradient: 'from-pink-500 to-rose-500',
+    },
   ];
 
   return (
@@ -93,10 +117,14 @@ export function Schedule() {
       className="relative py-40 bg-gradient-to-b from-black via-zinc-950 to-black overflow-hidden"
     >
       {/* Grid background */}
-      <div className="absolute inset-0 opacity-5" style={{
-        backgroundImage: 'linear-gradient(rgba(139, 92, 246, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(139, 92, 246, 0.3) 1px, transparent 1px)',
-        backgroundSize: '100px 100px',
-      }}></div>
+      <div
+        className="absolute inset-0 opacity-5"
+        style={{
+          backgroundImage:
+            'linear-gradient(rgba(139, 92, 246, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(139, 92, 246, 0.3) 1px, transparent 1px)',
+          backgroundSize: '100px 100px',
+        }}
+      ></div>
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-32">
@@ -123,24 +151,34 @@ export function Schedule() {
 
                   {/* Content card */}
                   <div className={`relative ${isLeft ? 'mr-auto pr-16' : 'ml-auto pl-16'} w-1/2`}>
-                    <div className={`relative bg-zinc-900/80 backdrop-blur-xl border border-white/10 rounded-3xl p-10 ${isLeft ? 'text-right' : 'text-left'}`}>
-                      <div className={`absolute inset-0 bg-gradient-to-r ${item.gradient} opacity-5 rounded-3xl`}></div>
-                      
+                    <div
+                      className={`relative bg-zinc-900/80 backdrop-blur-xl border border-white/10 rounded-3xl p-10 ${isLeft ? 'text-right' : 'text-left'}`}
+                    >
+                      <div
+                        className={`absolute inset-0 bg-gradient-to-r ${item.gradient} opacity-5 rounded-3xl`}
+                      ></div>
+
                       <div className="relative z-10">
-                        <div className={`inline-flex items-center gap-3 mb-4 ${isLeft ? 'flex-row-reverse' : ''}`}>
+                        <div
+                          className={`inline-flex items-center gap-3 mb-4 ${isLeft ? 'flex-row-reverse' : ''}`}
+                        >
                           <Clock className={`text-${item.gradient.split('-')[1]}-400`} size={28} />
                           <span className="text-3xl text-zinc-400">{item.time}</span>
                         </div>
-                        
-                        <h3 className={`text-5xl bg-gradient-to-r ${item.gradient} bg-clip-text text-transparent mb-3`}>
+
+                        <h3
+                          className={`text-5xl bg-gradient-to-r ${item.gradient} bg-clip-text text-transparent mb-3`}
+                        >
                           {item.title}
                         </h3>
-                        
+
                         <p className="text-zinc-500 text-xl">{item.day}</p>
                       </div>
 
                       {/* Connecting line to timeline */}
-                      <div className={`absolute top-1/2 ${isLeft ? 'right-0' : 'left-0'} w-16 h-px bg-gradient-to-r ${isLeft ? 'from-white/20 to-transparent' : 'from-transparent to-white/20'}`}></div>
+                      <div
+                        className={`absolute top-1/2 ${isLeft ? 'right-0' : 'left-0'} w-16 h-px bg-gradient-to-r ${isLeft ? 'from-white/20 to-transparent' : 'from-transparent to-white/20'}`}
+                      ></div>
                     </div>
                   </div>
                 </div>

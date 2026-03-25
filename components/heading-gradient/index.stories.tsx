@@ -1,8 +1,8 @@
-import { GradientHeading } from ".";
-import type { Meta, StoryObj } from "@storybook/react";
+import { GradientHeading } from '.';
+import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof GradientHeading> = {
-  title: "Components/GradientHeading",
+  title: 'Components/GradientHeading',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
@@ -11,7 +11,7 @@ const meta: Meta<typeof GradientHeading> = {
   args: {
     headingAs: 'h2',
     children: 'Hello World',
-  }
+  },
 };
 
 export default meta;
@@ -19,6 +19,6 @@ export default meta;
 export const Primary: StoryObj<typeof GradientHeading> = {
   render: (args: any) => <GradientHeading {...args} />,
   args: {
-    className: "text-6xl font-bold",
-  }
+    className: 'text-6xl font-bold',
+  },
 };

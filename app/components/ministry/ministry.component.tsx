@@ -25,7 +25,7 @@ export function Ministries() {
       // Stack cards animation
       cards.forEach((card: any, index) => {
         const isLast = index === cards.length - 1;
-        
+
         gsap.to(card, {
           scrollTrigger: {
             trigger: sectionRef.current,
@@ -46,7 +46,7 @@ export function Ministries() {
       if (title) {
         const originalText = title.textContent || '';
         const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        
+
         ScrollTrigger.create({
           trigger: sectionRef.current,
           start: 'top center',
@@ -61,8 +61,8 @@ export function Ministries() {
                   return chars[Math.floor(Math.random() * chars.length)];
                 })
                 .join('');
-              
-              iteration += 1/3;
+
+              iteration += 1 / 3;
               if (iteration >= originalText.length) {
                 clearInterval(interval);
                 title.textContent = originalText;
@@ -71,7 +71,6 @@ export function Ministries() {
           },
         });
       }
-
     }, sectionRef);
 
     return () => ctx.revert();
@@ -81,25 +80,29 @@ export function Ministries() {
     {
       icon: Baby,
       title: 'Children',
-      description: 'Fun, engaging programs that teach kids about Jesus through games, stories, and activities.',
+      description:
+        'Fun, engaging programs that teach kids about Jesus through games, stories, and activities.',
       gradient: 'from-yellow-500 to-orange-500',
     },
     {
       icon: Users,
       title: 'Youth',
-      description: 'Dynamic gatherings where teens build friendships, explore faith, and discover their purpose.',
+      description:
+        'Dynamic gatherings where teens build friendships, explore faith, and discover their purpose.',
       gradient: 'from-green-500 to-teal-500',
     },
     {
       icon: GraduationCap,
       title: 'Young Adults',
-      description: 'A vibrant community for college and career-aged individuals navigating faith and life.',
+      description:
+        'A vibrant community for college and career-aged individuals navigating faith and life.',
       gradient: 'from-blue-500 to-indigo-500',
     },
     {
       icon: Heart,
       title: 'Women',
-      description: 'Empowering women to grow spiritually through Bible studies, mentorship, and fellowship.',
+      description:
+        'Empowering women to grow spiritually through Bible studies, mentorship, and fellowship.',
       gradient: 'from-pink-500 to-rose-500',
     },
     {
@@ -111,7 +114,8 @@ export function Ministries() {
     {
       icon: Globe,
       title: 'Missions',
-      description: 'Local and global outreach initiatives that share God\'s love with communities in need.',
+      description:
+        "Local and global outreach initiatives that share God's love with communities in need.",
       gradient: 'from-purple-500 to-violet-500',
     },
   ];
@@ -135,20 +139,24 @@ export function Ministries() {
               style={{ zIndex: ministries.length - index }}
             >
               <div className="relative w-full bg-zinc-900/80 backdrop-blur-xl border border-white/10 rounded-3xl p-16 overflow-hidden">
-                <div className={`absolute inset-0 bg-gradient-to-br ${ministry.gradient} opacity-10`}></div>
-                
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${ministry.gradient} opacity-10`}
+                ></div>
+
                 <div className="relative z-10 flex items-center gap-12">
-                  <div className={`flex-shrink-0 p-8 bg-gradient-to-r ${ministry.gradient} rounded-3xl`}>
+                  <div
+                    className={`flex-shrink-0 p-8 bg-gradient-to-r ${ministry.gradient} rounded-3xl`}
+                  >
                     <ministry.icon size={80} className="text-white" />
                   </div>
 
                   <div className="flex-1">
-                    <h3 className={`text-6xl md:text-7xl bg-gradient-to-r ${ministry.gradient} bg-clip-text text-transparent mb-6`}>
+                    <h3
+                      className={`text-6xl md:text-7xl bg-gradient-to-r ${ministry.gradient} bg-clip-text text-transparent mb-6`}
+                    >
                       {ministry.title}
                     </h3>
-                    <p className="text-zinc-300 text-2xl leading-relaxed">
-                      {ministry.description}
-                    </p>
+                    <p className="text-zinc-300 text-2xl leading-relaxed">{ministry.description}</p>
                   </div>
                 </div>
 
@@ -160,9 +168,7 @@ export function Ministries() {
           ))}
         </div>
 
-        <div className="text-center mt-20 text-zinc-500">
-          Scroll to explore each ministry
-        </div>
+        <div className="text-center mt-20 text-zinc-500">Scroll to explore each ministry</div>
       </div>
     </section>
   );

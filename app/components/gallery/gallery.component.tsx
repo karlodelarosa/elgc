@@ -52,7 +52,7 @@ export function Gallery() {
               end: 'right left',
               scrub: true,
             },
-          }
+          },
         );
       });
 
@@ -72,19 +72,30 @@ export function Gallery() {
   }, []);
 
   const images = [
-    { url: 'https://images.unsplash.com/photo-1729089049653-24312fdca908?q=80&w=1080', title: 'Worship Experience' },
-    { url: 'https://images.unsplash.com/photo-1667068114532-97a1ce6d0a52?q=80&w=1080', title: 'Prayer Meeting' },
-    { url: 'https://images.unsplash.com/photo-1760319726429-fcda77d3cb05?q=80&w=1080', title: 'Community' },
-    { url: 'https://images.unsplash.com/photo-1550541231-56ddb7f844ec?q=80&w=1080', title: 'Fellowship' },
-    { url: 'https://images.unsplash.com/photo-1681992155294-278fd9357c84?q=80&w=1080', title: 'Events' },
+    {
+      url: 'https://images.unsplash.com/photo-1729089049653-24312fdca908?q=80&w=1080',
+      title: 'Worship Experience',
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1667068114532-97a1ce6d0a52?q=80&w=1080',
+      title: 'Prayer Meeting',
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1760319726429-fcda77d3cb05?q=80&w=1080',
+      title: 'Community',
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1550541231-56ddb7f844ec?q=80&w=1080',
+      title: 'Fellowship',
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1681992155294-278fd9357c84?q=80&w=1080',
+      title: 'Events',
+    },
   ];
 
   return (
-    <section
-      id="gallery"
-      ref={sectionRef}
-      className="relative h-screen bg-black overflow-hidden"
-    >
+    <section id="gallery" ref={sectionRef} className="relative h-screen bg-black overflow-hidden">
       {/* Background blobs only */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-16 w-[400px] h-[400px] bg-pink-500/20 rounded-full blur-3xl animate-pulse"></div>
@@ -124,9 +135,7 @@ export function Gallery() {
         ))}
       </div>
 
-      <div className="absolute bottom-12 right-12 text-zinc-500 text-lg">
-        Our Moments
-      </div>
+      <div className="absolute bottom-12 right-12 text-zinc-500 text-lg">Our Moments</div>
     </section>
   );
 }
