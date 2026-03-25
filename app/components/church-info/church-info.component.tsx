@@ -64,9 +64,9 @@ export function ChurchIntro() {
 
       {/* Right column: Text */}
       <div className="md:w-1/2 w-full h-1/2 md:h-full flex flex-col justify-center items-start px-8 md:px-16 z-10">
-        <h2 className="text-5xl md:text-6xl text-white mb-6">
+        <div className="text-5xl md:text-6xl text-white mb-6">
           <GradientHeading>We are the body of Christ,</GradientHeading>
-        </h2>
+        </div>
 
         <p className="text-4xl md:text-5xl text-zinc-300">
           meeting in a{' '}

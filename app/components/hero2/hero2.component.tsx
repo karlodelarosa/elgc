@@ -183,7 +183,10 @@ export function Hero2() {
   animate={{ opacity: 1 }}
   transition={{ duration: 2, delay: 0.5 }}
 >
-  <span className="bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent animate-color-shift opacity-20">
+  <span className="bg-gradient-to-r from-pink-400 md:hidden via-purple-400 to-cyan-400 bg-clip-text text-transparent animate-color-shift opacity-20">
+    ELGC
+  </span>
+  <span className="bg-gradient-to-r from-pink-400 hidden md:inline via-purple-400 to-cyan-400 bg-clip-text text-transparent animate-color-shift opacity-20">
     ELGCHURCH
   </span>
   {/* <span className="opacity-10">HURCH</span> */}

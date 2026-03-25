@@ -125,7 +125,7 @@ export function Gallery() {
       </div>
 
       <div className="absolute bottom-12 right-12 text-zinc-500 text-lg">
-        Horizontal Scroll Gallery
+        Our Moments
       </div>
     </section>
   );

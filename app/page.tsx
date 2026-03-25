@@ -52,7 +52,7 @@ function AnimatedMenu() {
 
   return (
     <motion.div
-      className={`fixed inset-x-0 top-0 z-20 backdrop-blur-xl bg-black/50 transition-all ${
+      className={`fixed inset-x-0 top-0 z-[999] backdrop-blur-xl bg-black/50 transition-all ${
         showMenu ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-8"
       }`}
       initial={{ opacity: 0, y: -20 }}
