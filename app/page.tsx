@@ -22,7 +22,6 @@ function AnimatedMenu() {
     gradient: 'from-pink-500 to-purple-500',
   };
 
-  // Handle scroll to show menu
   useEffect(() => {
     const onScroll = () => {
       if (window.scrollY > 50) setShowMenu(true);
@@ -32,7 +31,6 @@ function AnimatedMenu() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // GSAP animation for menu items
   useEffect(() => {
     menuRefs.current.forEach((ref, i) => {
       if (!ref) return;
@@ -62,15 +60,14 @@ function AnimatedMenu() {
       <div className="pt-3 text-center xl:hidden">
         <h1 className="text-sm md:text-base tracking-[.50em] uppercase font-bold bg-gradient-to-r from-cyan-300 via-blue-300 to-purple-300 bg-clip-text text-transparent">
           <span className="lg:hidden">ELGC</span>
-          <span className="hidden lg:inline">Emmanuel's Living Gospel Church</span>
+          <span className="hidden lg:inline">Emmanuel&apos;s Living Gospel Church</span>
         </h1>
       </div>
+
       <div className="mx-auto px-6 py-4 flex flex-col sm:flex-col md:flex-col lg:flex-col xl:flex-row 2xl:flex-row justify-between items-center gap-2 md:gap-2 lg:gap-2 xl:gap-4 2xl:gap-6">
         {/* Left: Event CTA */}
         <motion.div className="flex-shrink-0 px-4 py-2 rounded-lg bg-gradient-to-r from-pink-500 to-purple-500 text-white text-sm font-semibold shadow-lg flex flex-col md:flex-row md:items-center md:gap-2">
-          {/* Mobile/tablet: short version */}
           <span className="block md:hidden font-bold text-sm">Family Day – June 13</span>
-          {/* Desktop: full version */}
           <span className="hidden md:block font-bold text-sm">
             {nextEvent.title} • {nextEvent.countdown}
           </span>
@@ -80,7 +77,7 @@ function AnimatedMenu() {
         <div className="absolute left-1/2 transform -translate-x-1/2 text-center">
           <h1 className="text-sm md:text-base tracking-[.50em] uppercase font-bold bg-gradient-to-r from-cyan-300 via-blue-300 to-purple-300 bg-clip-text text-transparent">
             <span className="hidden xl:inline 2xl:hidden">ELGC</span>
-            <span className="hidden 2xl:inline">Emmanuel's Living Gospel Church</span>
+            <span className="hidden 2xl:inline">Emmanuel&apos;s Living Gospel Church</span>
           </h1>
         </div>
 
@@ -115,7 +112,6 @@ function AnimatedMenu() {
             );
           })}
 
-          {/* Help Us button */}
           <motion.div
             className="flex flex-row items-center gap-2 px-4 py-2 rounded-lg border-2 border-pink-500 text-pink-400 font-semibold cursor-pointer select-none text-sm md:text-sm"
             whileHover={{

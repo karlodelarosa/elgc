@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Clock, MapPin, Coffee, Users } from 'lucide-react';
@@ -30,7 +30,7 @@ export function Schedule2() {
       );
 
       // Animate schedule items
-      gsap.utils.toArray('.schedule-item').forEach((item: any, index) => {
+      gsap.utils.toArray<HTMLElement>('.schedule-item').forEach((item, index) => {
         const isLeft = index % 2 === 0;
 
         gsap.from(item, {
@@ -116,7 +116,7 @@ export function Schedule2() {
             Join Us
           </h2>
           <p className="text-zinc-400 text-lg max-w-xl mx-auto">
-            You're welcome to join us for any of our weekly gatherings.
+            You&apos;re welcome to join us for any of our weekly gatherings.
           </p>
         </div>
 
@@ -139,10 +139,14 @@ export function Schedule2() {
                   {/* card */}
                   <div className={`relative ${isLeft ? 'mr-auto pr-16' : 'ml-auto pl-16'} w-1/2`}>
                     <div
-                      className={`bg-zinc-900/80 backdrop-blur-xl border border-white/10 rounded-2xl p-8 ${isLeft ? 'text-right' : 'text-left'}`}
+                      className={`bg-zinc-900/80 backdrop-blur-xl border border-white/10 rounded-2xl p-8 ${
+                        isLeft ? 'text-right' : 'text-left'
+                      }`}
                     >
                       <div
-                        className={`inline-flex items-center gap-3 mb-3 ${isLeft ? 'flex-row-reverse' : ''}`}
+                        className={`inline-flex items-center gap-3 mb-3 ${
+                          isLeft ? 'flex-row-reverse' : ''
+                        }`}
                       >
                         <Clock size={22} className="text-purple-400" />
                         <span className="text-xl text-zinc-300">{item.time}</span>

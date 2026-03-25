@@ -61,7 +61,7 @@ export default function HorizontalMasonryGSAP() {
     const wrapper = wrapperRef.current;
     if (!container || !wrapper) return;
 
-    let totalWidth = wrapper.scrollWidth;
+    const totalWidth = wrapper.scrollWidth;
 
     gsap.to(wrapper, {
       x: -(totalWidth - window.innerWidth),

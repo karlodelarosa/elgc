@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import gsap from 'gsap';
 
 import { QuantumButton } from '../button/button.component';
-import { GradientHeading } from '@/components/heading-gradient/index';
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -13,7 +12,7 @@ export default function Hero() {
 
   // === INITIALIZE ORBS AND ANIMATION ===
   useEffect(() => {
-    orbRefs.current.forEach((orb, i) => {
+    orbRefs.current.forEach((orb) => {
       // 🌀 Random scattered start positions
       const startX = Math.random() * window.innerWidth - window.innerWidth / 2;
       const startY = Math.random() * window.innerHeight - window.innerHeight / 2;

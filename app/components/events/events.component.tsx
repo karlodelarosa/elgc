@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Calendar, MapPin, Coffee, Users, ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,10 +11,10 @@ export function UpcomingEvents() {
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
     if (prefersReducedMotion) return;
 
     const ctx = gsap.context(() => {
+      // Animate timeline line
       gsap.fromTo(
         '.timeline-line',
         { scaleY: 0, transformOrigin: 'top' },
@@ -28,7 +29,8 @@ export function UpcomingEvents() {
         },
       );
 
-      gsap.utils.toArray('.event-item').forEach((item: any, index) => {
+      // Animate event items
+      gsap.utils.toArray<HTMLElement>('.event-item').forEach((item, index) => {
         const isLeft = index % 2 === 0;
 
         gsap.from(item, {
@@ -43,6 +45,7 @@ export function UpcomingEvents() {
         });
       });
 
+      // Animate timeline dots
       gsap.to('.timeline-dot', {
         scale: 1.2,
         duration: 1.2,
@@ -62,7 +65,7 @@ export function UpcomingEvents() {
       title: 'ALAB: Illuminate',
       description: 'A night of youth worship, creative arts, and powerful messages.',
       image:
-        'https://plus.unsplash.com/premium_photo-1667113478916-7765913368f9?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        'https://plus.unsplash.com/premium_photo-1667113478916-7765913368f9?q=80&w=774&auto=format&fit=crop',
       link: '/events/alab-illuminate',
       gradient: 'from-orange-500 to-pink-500',
     },
@@ -78,7 +81,7 @@ export function UpcomingEvents() {
       title: 'Family Day',
       description: 'A celebration for families with food, games, and fellowship.',
       image:
-        'https://plus.unsplash.com/premium_photo-1667113478916-7765913368f9?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        'https://plus.unsplash.com/premium_photo-1667113478916-7765913368f9?q=80&w=774&auto=format&fit=crop',
       link: '/events/family-day',
       gradient: 'from-blue-500 to-purple-500',
     },
@@ -90,7 +93,7 @@ export function UpcomingEvents() {
       ref={sectionRef}
       className="relative py-32 bg-gradient-to-b from-black via-zinc-950 to-black overflow-hidden"
     >
-      {/* grid background */}
+      {/* Grid background */}
       <div
         className="absolute inset-0 opacity-5"
         style={{
@@ -106,7 +109,6 @@ export function UpcomingEvents() {
           <h2 className="text-5xl md:text-6xl bg-gradient-to-r from-orange-300 via-pink-300 to-purple-300 bg-clip-text text-transparent mb-4">
             Upcoming Events
           </h2>
-
           <p className="text-zinc-400 text-lg max-w-xl mx-auto">
             Stay connected with special gatherings and upcoming activities in our church community.
           </p>
@@ -125,10 +127,10 @@ export function UpcomingEvents() {
 
               return (
                 <div key={index} className="event-item relative">
-                  {/* timeline dot */}
+                  {/* Timeline dot */}
                   <div className="timeline-dot absolute left-1/2 md:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full z-10 shadow-md shadow-purple-500/40" />
 
-                  {/* event card */}
+                  {/* Event card */}
                   <div
                     className={`relative w-full md:w-1/2 ${
                       isLeft
@@ -138,11 +140,12 @@ export function UpcomingEvents() {
                   >
                     <div className="bg-zinc-900/80 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden">
                       {event.image && (
-                        <div className="h-48 overflow-hidden">
-                          <img
+                        <div className="h-48 relative w-full">
+                          <Image
                             src={event.image}
                             alt={event.title}
-                            className="w-full h-full object-cover hover:scale-105 transition duration-500"
+                            fill
+                            className="object-cover hover:scale-105 transition duration-500"
                           />
                         </div>
                       )}
@@ -196,7 +199,6 @@ export function UpcomingEvents() {
               <div className="inline-flex p-5 bg-purple-500/10 rounded-xl mb-5">
                 <info.icon size={36} className="text-purple-400" />
               </div>
-
               <h4 className="text-2xl text-white mb-2">{info.title}</h4>
               <p className="text-zinc-400">{info.text}</p>
             </div>

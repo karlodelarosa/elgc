@@ -1,22 +1,17 @@
-import React from 'react';
-import { cn } from '@/lib/utils'; // optional if you use a cn utility
+import { ReactNode, ElementType } from 'react';
+import { cn } from '@/lib/utils';
 
-import { JSX } from 'react';
-
-interface AnimatedHeadingProps {
-  children: React.ReactNode;
-  headingAs?: keyof JSX.IntrinsicElements;
+interface GradientHeadingProps {
+  children: ReactNode;
+  headingAs?: ElementType;
   className?: string;
-  asChild?: boolean;
 }
 
 export const GradientHeading = ({
   children,
-  headingAs = 'h2',
+  headingAs: Comp = 'h2',
   className,
-}: AnimatedHeadingProps) => {
-  const Comp: any = headingAs;
-
+}: GradientHeadingProps) => {
   return (
     <Comp
       className={cn(

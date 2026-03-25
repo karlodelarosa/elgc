@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Calendar, Clock, MapPin, Coffee, Users } from 'lucide-react';
+import { Clock, MapPin, Coffee, Users } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -27,8 +27,8 @@ export function Schedule() {
       );
 
       // Animate schedule items
-      const items = gsap.utils.toArray('.schedule-item');
-      items.forEach((item: any, index) => {
+      const items = gsap.utils.toArray<HTMLElement>('.schedule-item');
+      items.forEach((item, index) => {
         const isLeft = index % 2 === 0;
 
         gsap.from(item, {
@@ -57,7 +57,7 @@ export function Schedule() {
       });
 
       // Magnetic title effect
-      const title = document.querySelector('.schedule-title');
+      const title = document.querySelector<HTMLElement>('.schedule-title');
       if (title) {
         gsap.to(title, {
           scrollTrigger: {
@@ -66,9 +66,7 @@ export function Schedule() {
             end: 'bottom top',
             scrub: 1,
           },
-          x: (i, target) => {
-            return ScrollTrigger.maxScroll(window) * 0.1;
-          },
+          x: () => ScrollTrigger.maxScroll(window) * 0.1,
         });
       }
     }, sectionRef);
@@ -162,7 +160,7 @@ export function Schedule() {
                         <div
                           className={`inline-flex items-center gap-3 mb-4 ${isLeft ? 'flex-row-reverse' : ''}`}
                         >
-                          <Clock className={`text-${item.gradient.split('-')[1]}-400`} size={28} />
+                          <Clock className="text-purple-400" size={28} />
                           <span className="text-3xl text-zinc-400">{item.time}</span>
                         </div>
 
@@ -177,7 +175,9 @@ export function Schedule() {
 
                       {/* Connecting line to timeline */}
                       <div
-                        className={`absolute top-1/2 ${isLeft ? 'right-0' : 'left-0'} w-16 h-px bg-gradient-to-r ${isLeft ? 'from-white/20 to-transparent' : 'from-transparent to-white/20'}`}
+                        className={`absolute top-1/2 ${isLeft ? 'right-0' : 'left-0'} w-16 h-px bg-gradient-to-r ${
+                          isLeft ? 'from-white/20 to-transparent' : 'from-transparent to-white/20'
+                        }`}
                       ></div>
                     </div>
                   </div>

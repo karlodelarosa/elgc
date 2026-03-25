@@ -17,7 +17,7 @@ const meta: Meta<typeof GradientHeading> = {
 export default meta;
 
 export const Primary: StoryObj<typeof GradientHeading> = {
-  render: (args: any) => <GradientHeading {...args} />,
+  render: (args) => <GradientHeading {...args} />,
   args: {
     className: 'text-6xl font-bold',
   },

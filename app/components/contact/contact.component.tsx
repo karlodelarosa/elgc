@@ -12,7 +12,9 @@ export function ContactSection() {
         {/* Header */}
         <div className="text-center mb-20">
           <p className="text-purple-400 tracking-widest uppercase text-sm mb-4">Contact Us</p>
-          <h2 className="text-4xl md:text-5xl font-semibold mb-6">We'd Love to Hear From You</h2>
+          <h2 className="text-4xl md:text-5xl font-semibold mb-6">
+            We&apos;d Love to Hear From You
+          </h2>
           <p className="text-zinc-400 max-w-2xl mx-auto text-lg">
             Have questions or want to connect with our church community? Send us a message or visit
             us in person.

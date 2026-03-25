@@ -14,8 +14,9 @@ export function Gallery() {
       const horizontalSection = horizontalRef.current;
       if (!horizontalSection) return;
 
-      const images = gsap.utils.toArray('.gallery-image');
+      const images = gsap.utils.toArray<HTMLElement>('.gallery-image');
 
+      // Horizontal scroll animation
       gsap.to(images, {
         xPercent: -100 * (images.length - 1),
         ease: 'none',
@@ -28,11 +29,11 @@ export function Gallery() {
         },
       });
 
-      images.forEach((img: any, index) => {
+      images.forEach((img) => {
+        // Clip reveal animation
         gsap.from(img, {
           scrollTrigger: {
             trigger: img,
-            containerAnimation: ScrollTrigger.getById('gallery-scroll'),
             start: 'left right',
             end: 'right left',
             scrub: true,
@@ -40,22 +41,26 @@ export function Gallery() {
           clipPath: 'inset(100% 0% 0% 0%)',
         });
 
-        gsap.fromTo(
-          img.querySelector('img'),
-          { scale: 1.5 },
-          {
-            scale: 1,
-            scrollTrigger: {
-              trigger: img,
-              containerAnimation: ScrollTrigger.getById('gallery-scroll'),
-              start: 'left right',
-              end: 'right left',
-              scrub: true,
+        // Scale animation for the inner img
+        const imageElement = img.querySelector('img');
+        if (imageElement) {
+          gsap.fromTo(
+            imageElement,
+            { scale: 1.5 },
+            {
+              scale: 1,
+              scrollTrigger: {
+                trigger: img,
+                start: 'left right',
+                end: 'right left',
+                scrub: true,
+              },
             },
-          },
-        );
+          );
+        }
       });
 
+      // Title animation
       gsap.to('.gallery-title', {
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -122,6 +127,7 @@ export function Gallery() {
               <ImageWithFallback
                 src={image.url}
                 alt={image.title}
+                fill
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>

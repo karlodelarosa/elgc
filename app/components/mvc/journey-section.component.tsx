@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, MotionValue, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { useRef } from 'react';
 import { GradientHeading } from '@/components/heading-gradient/index'; // Import your gradient component
 

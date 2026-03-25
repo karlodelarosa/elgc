@@ -2,8 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion } from 'framer-motion';
-import { GradientHeading } from '@/components/heading-gradient';
-import { QuantumButton, FrostButton } from '@/components/button';
+import { QuantumButton } from '@/components/button';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -200,7 +199,7 @@ export function Hero2() {
           transition={{ duration: 1.2, delay: 0.6 }}
           className="text-2xl md:text-3xl text-zinc-300"
         >
-          Experience God's love in a community that welcomes you
+          Experience God&apos;s love in a community that welcomes you
         </motion.p>
 
         <motion.div

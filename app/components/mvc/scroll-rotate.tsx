@@ -41,6 +41,8 @@ const ScrollRotate = () => {
   const totalScrollDistanceVH = numSections * 100 * SCROLL_SPEED_MULTIPLIER;
   const contentTravel = (numSections - 1) * 100;
 
+  if (typeof window === 'undefined') return null; // or skip code
+
   useEffect(() => {
     ScrollTrigger.getAll().forEach((t) => t.kill());
 
@@ -196,7 +198,7 @@ const ScrollRotate = () => {
       masterScroll.scrollTrigger?.kill();
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
-  }, [totalScrollDistanceVH]);
+  }, [totalScrollDistanceVH, contentTravel, numSections]);
 
   return (
     <div className="scroll-rotate-wrapper">

@@ -50,8 +50,8 @@ export function Music() {
       }
 
       // Waveform animation
-      const bars = gsap.utils.toArray('.wave-bar');
-      bars.forEach((bar: any, i) => {
+      const bars = gsap.utils.toArray<HTMLElement>('.wave-bar');
+      bars.forEach((bar, i) => {
         gsap.to(bar, {
           scaleY: 'random(0.3, 1.5)',
           duration: 'random(0.5, 1.5)',
@@ -71,8 +71,8 @@ export function Music() {
       });
 
       // Platform icons animation
-      const platformIcons = gsap.utils.toArray('.platform-icon');
-      platformIcons.forEach((icon: any, i) => {
+      const platformIcons = gsap.utils.toArray<HTMLElement>('.platform-icon');
+      platformIcons.forEach((icon, i) => {
         gsap.from(icon, {
           scrollTrigger: {
             trigger: featuredRef.current,
