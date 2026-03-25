@@ -52,8 +52,7 @@ export default function HorizontalMasonryGSAP() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
 
-  // Split images into masonry columns
-  const columns = Array.from({ length: COLUMNS }, () => []);
+  const columns: string[][] = Array.from({ length: COLUMNS }, () => []);
   IMAGES.forEach((img, i) => columns[i % COLUMNS].push(img));
 
   useEffect(() => {
