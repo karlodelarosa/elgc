@@ -61,19 +61,12 @@ export function TopMenu() {
 
         <div className="mx-auto px-6 py-4 flex justify-between items-center">
           {/* LEFT */}
-          <EventCTA
-            title={nextEvent.title}
-            countdown={nextEvent.countdown}
-          />
+          <EventCTA title={nextEvent.title} countdown={nextEvent.countdown} />
 
           {/* RIGHT */}
           <div className="flex items-center gap-4">
             {primaryMenu.map((item) => (
-              <MenuItem
-                key={item.label}
-                label={item.label}
-                Icon={item.icon}
-              />
+              <MenuItem key={item.label} label={item.label} Icon={item.icon} />
             ))}
 
             <HelpUsButton />
@@ -90,12 +83,7 @@ export function TopMenu() {
       </motion.div>
 
       <AnimatePresence>
-        {drawerOpen && (
-          <Drawer
-            menu={drawerMenu}
-            onClose={() => setDrawerOpen(false)}
-          />
-        )}
+        {drawerOpen && <Drawer menu={drawerMenu} onClose={() => setDrawerOpen(false)} />}
       </AnimatePresence>
     </>
   );

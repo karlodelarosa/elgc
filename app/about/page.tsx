@@ -61,7 +61,8 @@ export default function AboutPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.3 }}
         >
-          Discover the story, mission, vision, and heart behind Emmanuel&apos;s Living Gospel Church.
+          Discover the story, mission, vision, and heart behind Emmanuel&apos;s Living Gospel
+          Church.
         </motion.p>
       </section>
 
@@ -159,7 +160,11 @@ export default function AboutPage() {
           Our Beliefs
         </h2>
         <p className="text-white/80 max-w-3xl text-lg md:text-xl">
-        Our beliefs center on Jesus Christ as our King, Lord, and Savior. Everything we do flows from our desire to glorify Him and make Him known. We stand on the truth of Scripture, seek the guidance of the Holy Spirit, and pursue a growing relationship with God in our daily lives. As a church, we are committed to loving people, serving our community, and sharing the hope of the gospel so that more lives may be transformed by Christ.
+          Our beliefs center on Jesus Christ as our King, Lord, and Savior. Everything we do flows
+          from our desire to glorify Him and make Him known. We stand on the truth of Scripture,
+          seek the guidance of the Holy Spirit, and pursue a growing relationship with God in our
+          daily lives. As a church, we are committed to loving people, serving our community, and
+          sharing the hope of the gospel so that more lives may be transformed by Christ.
         </p>
       </section>
 

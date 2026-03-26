@@ -82,19 +82,19 @@ export function MissionVisionValues() {
       {/* Floating Learn More Button */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20">
         <Link href="/about">
-        <motion.button
-  className="
+          <motion.button
+            className="
     px-4 py-2 rounded-lg border border-white/40
     text-white/50 text-sm font-medium
     backdrop-blur-sm
     transition-all duration-300
     opacity-70
   "
-  whileHover={{ opacity: 1 }}
-  whileTap={{ scale: 0.95 }}
->
-  Learn More
-</motion.button>
+            whileHover={{ opacity: 1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Learn More
+          </motion.button>
         </Link>
       </div>
     </section>

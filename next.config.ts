@@ -14,8 +14,8 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'media.canva.com'
-      }
+        hostname: 'media.canva.com',
+      },
     ],
   },
 };
