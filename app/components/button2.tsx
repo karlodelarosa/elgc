@@ -57,7 +57,7 @@ export function WaveButton({ label = 'Flow' }) {
     <motion.button
       ref={ref}
       onClick={handleClick}
-      className="relative overflow-hidden rounded-xl px-10 py-4 font-semibold text-white bg-sky-600/80 backdrop-blur-md shadow-[inset_0_0_20px_rgba(255,255,255,0.2)]"
+      className="relative w-fit overflow-hidden rounded-xl px-10 py-4 font-semibold text-white bg-sky-600/80 backdrop-blur-md shadow-[inset_0_0_20px_rgba(255,255,255,0.2)]"
       whileHover={{ backgroundColor: 'rgba(56,189,248,0.9)' }}
     >
       <span className="relative z-10">{label}</span>

@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion } from 'framer-motion';
 import { QuantumButton } from '@/components/button';
+import { HeroText } from './components/hero-text.component';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,6 +15,17 @@ function mulberry32(seed: number) {
     return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
   };
 }
+
+const heroTextData = {
+  lines: [
+    "Experience God's love in a community that welcomes you",
+    'Join us and grow in faith together',
+    'Worship, serve, and connect with others',
+    "Discover purpose and hope through God's Word",
+    'Be part of a journey that transforms lives',
+  ],
+  buttonLabel: 'Enter Experience',
+};
 
 export function Hero2() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -201,24 +213,7 @@ export function Hero2() {
       </motion.div>
 
       {/* Content */}
-      <div className="absolute bottom-24 z-30 w-full text-center px-6 flex flex-col items-center gap-6">
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.6 }}
-          className="text-2xl md:text-3xl text-zinc-300"
-        >
-          Experience God&apos;s love in a community that welcomes you
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 1 }}
-        >
-          <QuantumButton label="Enter Experience" />
-        </motion.div>
-      </div>
+      <HeroText lines={heroTextData.lines} buttonLabel={heroTextData.buttonLabel} />
 
       {/* Vignette */}
       <div

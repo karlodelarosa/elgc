@@ -1,6 +1,9 @@
+'use client';
+
 import React from 'react';
 import { Heart, Eye, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export function MissionVisionValues() {
   const sections = [
@@ -43,7 +46,6 @@ export function MissionVisionValues() {
             <motion.div
               key={idx}
               className="flex-1 flex flex-col justify-center items-center text-center px-6 py-12 md:py-0 border-t md:border-t-0 md:border-l border-white/5"
-              whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.5 }}
             >
               <motion.div
@@ -75,6 +77,25 @@ export function MissionVisionValues() {
             </motion.div>
           );
         })}
+      </div>
+
+      {/* Floating Learn More Button */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20">
+        <Link href="/about">
+        <motion.button
+  className="
+    px-4 py-2 rounded-lg border border-white/40
+    text-white/50 text-sm font-medium
+    backdrop-blur-sm
+    transition-all duration-300
+    opacity-70
+  "
+  whileHover={{ opacity: 1 }}
+  whileTap={{ scale: 0.95 }}
+>
+  Learn More
+</motion.button>
+        </Link>
       </div>
     </section>
   );

@@ -39,7 +39,6 @@ export function TopMenu() {
       <Brand />
 
       <div className="mx-auto px-6 py-4 flex flex-col xl:flex-row justify-between items-center gap-4">
-
         <EventCTA title={nextEvent.title} countdown={nextEvent.countdown} />
 
         <div className="flex flex-row items-center gap-4">

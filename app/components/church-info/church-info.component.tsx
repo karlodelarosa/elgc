@@ -68,8 +68,8 @@ export function ChurchIntro() {
           <GradientHeading>We are the body of Christ,</GradientHeading>
         </div>
 
-        <p className="text-4xl md:text-5xl text-zinc-300">
-          meeting in a{' '}
+        <p className="text-4xl md:text-5xl text-zinc-300 flex flex-col flex-wrap 2xl:flex-row gap-2">
+          <span className="py-2">meeting in a</span>
           <AnimatePresence mode="wait">
             <motion.span
               key={locations[current].label}
@@ -77,7 +77,7 @@ export function ChurchIntro() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.8 }}
-              className="inline-block bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent rounded-xl px-3 py-1"
+              className="inline-block bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent rounded-xl py-2"
             >
               {locations[current].label}
             </motion.span>
