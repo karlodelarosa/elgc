@@ -73,8 +73,8 @@ export default function AboutPage() {
           <p className="text-lg md:text-xl">
             For over 15 years, ELGC has been rooted in a passion for sharing Jesus Christ and
             serving the community. We started as a small group of believers and have grown into a
-            vibrant church family, committed to making disciples and transforming lives through
-            God's Word.
+            vibrant church family, committed to making disciples and transforming lives through Gods
+            Word.
           </p>
           <p className="text-lg md:text-xl">
             Every ministry, outreach, and program we run stems from our desire to honor God, serve
