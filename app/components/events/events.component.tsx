@@ -65,7 +65,7 @@ export function UpcomingEvents() {
       title: 'ALAB: Illuminate',
       description: 'A night of youth worship, creative arts, and powerful messages.',
       image:
-        'https://plus.unsplash.com/premium_photo-1667113478916-7765913368f9?q=80&w=774&auto=format&fit=crop',
+        'https://media.canva.com/v2/image-resize/format:PNG/height:788/quality:100/uri:ifs%3A%2F%2FM%2F813404fb-1365-4ddc-aa0d-5dbfb43c219d/watermark:F/width:940?csig=AAAAAAAAAAAAAAAAAAAAADLg0U93HuXHobdoJ9O_7ubmXhz-j72twnTZNfW_iuc9&exp=1774512447&osig=AAAAAAAAAAAAAAAAAAAAAONtC5lH8bBMyByjYwVvPLZ8_83hpm0tsUodtqPDRSlc&signer=media-rpc&x-canva-quality=screen_2x',
       link: '/events/alab-illuminate',
       gradient: 'from-orange-500 to-pink-500',
     },
@@ -140,7 +140,7 @@ export function UpcomingEvents() {
                   >
                     <div className="bg-zinc-900/80 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden">
                       {event.image && (
-                        <div className="h-48 relative w-full">
+                        <div className="h-64 relative w-full">
                           <Image
                             src={event.image}
                             alt={event.title}
