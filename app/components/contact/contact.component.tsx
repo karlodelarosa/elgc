@@ -1,4 +1,5 @@
 import { MapPin, Phone, Facebook, Instagram } from 'lucide-react';
+import { ContactForm } from './components/contact-form.component';
 import { motion } from 'framer-motion';
 
 export function ContactSection() {
@@ -91,12 +92,13 @@ export function ContactSection() {
               viewport={{ once: true }}
             >
               <iframe
-                src="https://www.google.com/maps?q=Manila&output=embed"
-                width="100%"
-                height="300"
-                style={{ border: 0 }}
-                loading="lazy"
-              ></iframe>
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.6465189929157!2d121.0702778!3d14.7656285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397af9449e6f0dd%3A0xd76f8e81d74fc657!2sEmmanuel's%20Living%20Gospel%20Church!5e0!3m2!1sen!2sph!4v1700000000000!5m2!1sen!2sph"
+  width="100%"
+  height="300"
+  style={{ border: 0 }}
+  allowFullScreen={false}
+  loading="lazy"
+/>
             </motion.div>
           </div>
 
@@ -108,29 +110,7 @@ export function ContactSection() {
             viewport={{ once: true }}
           >
             <h3 className="text-2xl mb-6 font-semibold">Send Us a Message</h3>
-            <form className="space-y-5">
-              <input
-                type="text"
-                placeholder="Your Name"
-                className="w-full p-3 bg-black/40 border border-zinc-700 rounded-lg focus:outline-none focus:border-purple-500"
-              />
-              <input
-                type="email"
-                placeholder="Email Address"
-                className="w-full p-3 bg-black/40 border border-zinc-700 rounded-lg focus:outline-none focus:border-purple-500"
-              />
-              <textarea
-                rows={5}
-                placeholder="Your Message"
-                className="w-full p-3 bg-black/40 border border-zinc-700 rounded-lg focus:outline-none focus:border-purple-500"
-              />
-              <button
-                type="submit"
-                className="w-full py-3 rounded-lg bg-gradient-to-br from-purple-600 to-pink-500 hover:scale-105 transition-transform font-medium"
-              >
-                Send Message
-              </button>
-            </form>
+              <ContactForm />
           </motion.div>
         </div>
       </div>
