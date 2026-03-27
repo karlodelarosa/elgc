@@ -126,7 +126,7 @@ export function Services() {
             </p>
 
             <a
-              href="/ministries"
+              href="/life-at-church"
               className="inline-block px-8 py-3 rounded-lg bg-purple-600 hover:bg-purple-500 transition font-medium"
             >
               View Bible Study Schedule
