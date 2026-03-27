@@ -1,4 +1,4 @@
-import { MapPin, Mail, Phone, Facebook, Youtube } from 'lucide-react';
+import { MapPin, Phone, Facebook, Instagram } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export function ContactSection() {
@@ -35,32 +35,50 @@ export function ContactSection() {
                 <div className="flex items-start gap-4">
                   <MapPin className="text-purple-400 mt-1" />
                   <div>
-                    <p className="text-zinc-300">Your Church Address Here</p>
-                    <p className="text-zinc-400 text-sm">City, Province</p>
+                    <p className="text-zinc-300">1948 St. Joseph Ave., Tala</p>
+                    <p className="text-zinc-400 text-sm">Caloocan City, Philippines</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
                   <Phone className="text-purple-400" />
-                  <p className="text-zinc-300">+63 XXX XXX XXXX</p>
+                  <p className="text-zinc-300">+639190618179</p>
                 </div>
-                <div className="flex items-center gap-4">
+                {/* <div className="flex items-center gap-4">
                   <Mail className="text-purple-400" />
                   <p className="text-zinc-300">church@email.com</p>
-                </div>
+                </div> */}
               </div>
               {/* Social Links */}
               <div className="flex gap-4 mt-8">
+                {/* Facebook */}
                 <a
-                  href="#"
-                  className="p-3 rounded-lg bg-gradient-to-br from-purple-600 to-pink-500 hover:scale-105 transition-transform"
+                  href="https://www.facebook.com/elgchurchofficial/"
+                  className="p-3 rounded-lg bg-[#1877F2] hover:scale-105 transition-transform"
                 >
-                  <Facebook size={20} />
+                  <Facebook size={20} color="white" />
                 </a>
+
+                {/* TikTok */}
                 <a
-                  href="#"
-                  className="p-3 rounded-lg bg-gradient-to-br from-purple-600 to-pink-500 hover:scale-105 transition-transform"
+                  href="https://www.tiktok.com/@elgchurch"
+                  className="p-3 rounded-lg bg-black hover:scale-105 transition-transform flex items-center justify-center border border-gray-800"
                 >
-                  <Youtube size={20} />
+                  <svg
+                    fill="white"
+                    viewBox="0 0 24 24"
+                    className="w-5 h-5"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M6.977,15.532a2.791,2.791,0,0,0,2.791,2.792,2.859,2.859,0,0,0,2.9-2.757L12.7,3h2.578A4.8,4.8,0,0,0,19.7,7.288v2.995h0c-.147.014-.295.022-.443.022a4.8,4.8,0,0,1-4.02-2.172v7.4a5.469,5.469,0,1,1-5.469-5.469c.114,0,.226.01.338.017v2.7a2.909,2.909,0,0,0-.338-.034A2.791,2.791,0,0,0,6.977,15.532Z" />
+                  </svg>
+                </a>
+
+                {/* Instagram */}
+                <a
+                  href="https://www.instagram.com/elgc.official/"
+                  className="p-3 rounded-lg bg-gradient-to-tr from-[#F58529] via-[#DD2A7B] to-[#515BD4] hover:scale-105 transition-transform"
+                >
+                  <Instagram size={20} color="white" />
                 </a>
               </div>
             </motion.div>

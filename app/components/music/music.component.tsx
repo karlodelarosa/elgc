@@ -184,7 +184,7 @@ export function Music() {
 
                   {/* YouTube Music */}
                   <a
-                    href="https://music.youtube.com"
+                    href="https://www.youtube.com/@ELGCWorship"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="platform-icon flex items-center gap-4 p-6 bg-gradient-to-r from-red-500/10 to-red-600/10 hover:from-red-500/20 hover:to-red-600/20 rounded-2xl border border-red-500/30 transition-all duration-300 group"
@@ -203,7 +203,7 @@ export function Music() {
 
                   {/* Apple Music */}
                   <a
-                    href="https://music.apple.com"
+                    href="https://music.apple.com/us/artist/elgc-worship/1861429602"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="platform-icon flex items-center gap-4 p-6 bg-gradient-to-r from-pink-500/10 to-rose-600/10 hover:from-pink-500/20 hover:to-rose-600/20 rounded-2xl border border-pink-500/30 transition-all duration-300 group"
