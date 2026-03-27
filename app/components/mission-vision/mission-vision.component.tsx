@@ -31,7 +31,7 @@ export function MissionVisionValues() {
   ];
 
   return (
-    <section className="w-full min-h-screen flex flex-col md:flex-row overflow-hidden relative bg-black">
+    <section className="w-full pb-32 lg:pb-0 lg:h-screen flex flex-col md:flex-row overflow-hidden relative bg-black">
       {/* Optional background blobs for immersive effect */}
       <div className="absolute inset-0">
         <div className="absolute top-10 left-10 w-[500px] h-[500px] bg-pink-500/20 rounded-full blur-3xl animate-pulse"></div>
@@ -39,13 +39,13 @@ export function MissionVisionValues() {
       </div>
 
       {/* Content Columns */}
-      <div className="relative z-10 flex flex-1 w-full h-full flex-col md:flex-row">
+      <div className="relative z-10 flex flex-1 w-full h-full flex-col lg:flex-row">
         {sections.map((section, idx) => {
           const IconComp = section.icon;
           return (
             <motion.div
               key={idx}
-              className="flex-1 flex flex-col justify-center items-center text-center px-6 py-12 md:py-0 border-t md:border-t-0 md:border-l border-white/5"
+              className="flex-1 flex flex-col justify-center items-center text-center px-6 py-12 lg:py-0 border-t md:border-t-0 md:border-l border-white/5"
               transition={{ duration: 0.5 }}
             >
               <motion.div
