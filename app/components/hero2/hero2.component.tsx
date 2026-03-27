@@ -163,7 +163,7 @@ export function Hero2() {
         style={{
           fontFamily: 'var(--font-six-caps)',
           fontWeight: 400,
-          fontSize: 'calc(100vh + 8rem)',
+          fontSize: 'calc(100vh + 10rem)',
           lineHeight: 1,
           color: 'rgba(255,255,255,0.03)',
           textTransform: 'uppercase',

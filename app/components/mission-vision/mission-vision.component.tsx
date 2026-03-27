@@ -31,7 +31,7 @@ export function MissionVisionValues() {
   ];
 
   return (
-    <section className="w-full h-screen flex flex-col md:flex-row overflow-hidden relative bg-black">
+    <section className="w-full min-h-screen flex flex-col md:flex-row overflow-hidden relative bg-black">
       {/* Optional background blobs for immersive effect */}
       <div className="absolute inset-0">
         <div className="absolute top-10 left-10 w-[500px] h-[500px] bg-pink-500/20 rounded-full blur-3xl animate-pulse"></div>

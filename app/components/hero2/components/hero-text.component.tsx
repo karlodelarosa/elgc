@@ -33,7 +33,7 @@ export function HeroText({
   };
 
   return (
-    <div className="absolute bottom-24 z-30 w-full text-center px-6 flex flex-col items-center gap-6">
+    <div className="absolute bottom-28 lg:bottom-24 z-30 w-full text-center px-6 flex flex-col items-center gap-6">
       <AnimatePresence mode="wait">
         <motion.p
           key={currentLine} // triggers fade for new line
