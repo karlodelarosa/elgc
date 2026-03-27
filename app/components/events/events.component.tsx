@@ -115,94 +115,85 @@ export function UpcomingEvents() {
         </div>
 
         {/* Timeline */}
-        <div className="relative max-w-5xl mx-auto">
-          {/* Center line */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-1 -ml-px">
-            <div className="timeline-line w-full h-full bg-gradient-to-b from-purple-500 via-pink-500 to-orange-500" />
-          </div>
+        <div className="max-w-5xl mx-auto grid gap-16">
+          <div className="relative">
+            {/* Center line */}
+            <div className="absolute left-1/2 top-0 bottom-0 w-1 -ml-px">
+              <div className="timeline-line w-full h-full bg-gradient-to-b from-purple-500 via-pink-500 to-orange-500" />
+            </div>
 
-          <div className="space-y-24">
-            {events.map((event, index) => {
-              const isLeft = index % 2 === 0;
+            <div className="space-y-24">
+              {events.map((event, index) => {
+                const isLeft = index % 2 === 0;
 
-              return (
-                <div key={index} className="event-item relative">
-                  {/* Timeline dot */}
-                  <div className="timeline-dot absolute left-1/2 md:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full z-10 shadow-md shadow-purple-500/40" />
+                return (
+                  <div key={index} className="event-item relative">
+                    {/* Timeline dot */}
+                    <div className="timeline-dot absolute left-1/2 md:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full z-10 shadow-md shadow-purple-500/40" />
 
-                  {/* Event card */}
-                  <div
-                    className={`relative w-full md:w-1/2 ${
-                      isLeft
-                        ? 'md:mr-auto md:pr-16 text-left md:text-right'
-                        : 'md:ml-auto md:pl-16 text-left'
-                    }`}
-                  >
-                    <div className="bg-zinc-900/80 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden">
-                      {event.image && (
-                        <div className="h-64 relative w-full">
-                          <Image
-                            src={event.image}
-                            alt={event.title}
-                            fill
-                            className="object-cover hover:scale-105 transition duration-500"
-                          />
-                        </div>
-                      )}
-
-                      <div className="p-8">
-                        <div
-                          className={`inline-flex items-center gap-3 mb-3 ${isLeft ? 'md:flex-row-reverse' : ''}`}
-                        >
-                          <Calendar size={22} className="text-purple-400" />
-                          <span className="text-xl text-zinc-300">{event.date}</span>
-                        </div>
-
-                        <h3
-                          className={`text-3xl bg-gradient-to-r ${event.gradient} bg-clip-text text-transparent mb-3`}
-                        >
-                          {event.title}
-                        </h3>
-
-                        <p className="text-zinc-400 mb-4">{event.description}</p>
-
-                        {event.link && (
-                          <a
-                            href={event.link}
-                            className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition"
-                          >
-                            Learn More
-                            <ArrowRight size={18} />
-                          </a>
+                    {/* Event card */}
+                    <div
+                      className={`relative w-full md:w-1/2 ${
+                        isLeft
+                          ? 'md:mr-auto md:pr-16 text-left md:text-right'
+                          : 'md:ml-auto md:pl-16 text-left'
+                      }`}
+                    >
+                      <div className="bg-zinc-900/80 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden">
+                        {event.image && (
+                          <div className="h-64 relative w-full">
+                            <Image
+                              src={event.image}
+                              alt={event.title}
+                              fill
+                              className="object-cover hover:scale-105 transition duration-500"
+                            />
+                          </div>
                         )}
+
+                        <div className="p-8">
+                          <div
+                            className={`inline-flex items-center gap-3 mb-3 ${isLeft ? 'md:flex-row-reverse' : ''}`}
+                          >
+                            <Calendar size={22} className="text-purple-400" />
+                            <span className="text-xl text-zinc-300">{event.date}</span>
+                          </div>
+
+                          <h3
+                            className={`text-3xl bg-gradient-to-r ${event.gradient} bg-clip-text text-transparent mb-3`}
+                          >
+                            {event.title}
+                          </h3>
+
+                          <p className="text-zinc-400 mb-4">{event.description}</p>
+
+                          {event.link && (
+                            <a
+                              href={event.link}
+                              className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition"
+                            >
+                              Learn More
+                              <ArrowRight size={18} />
+                            </a>
+                          )}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Extra Info */}
-        <div className="grid md:grid-cols-3 gap-10 mt-32 max-w-5xl mx-auto">
-          {[
-            { icon: MapPin, title: 'Location', text: '123 Faith Street, Grace City' },
-            {
-              icon: Coffee,
-              title: 'Fellowship',
-              text: 'Connect with others after every gathering',
-            },
-            { icon: Users, title: 'Community', text: 'Events for families, youth, and all ages' },
-          ].map((info, i) => (
-            <div key={i} className="text-center">
-              <div className="inline-flex p-5 bg-purple-500/10 rounded-xl mb-5">
-                <info.icon size={36} className="text-purple-400" />
-              </div>
-              <h4 className="text-2xl text-white mb-2">{info.title}</h4>
-              <p className="text-zinc-400">{info.text}</p>
+                );
+              })}
             </div>
-          ))}
+          </div>
+
+          <div className="flex justify-center mt-24">
+            <a
+              href="/events"
+              className="inline-flex items-center gap-2 rounded-full border border-purple-400/40 bg-purple-500/10 px-6 py-3 text-purple-200 transition hover:border-purple-300 hover:bg-purple-500/20 hover:text-white"
+            >
+              View Full Event Schedule
+              <ArrowRight size={18} />
+            </a>
+          </div>
         </div>
       </div>
     </section>
