@@ -37,10 +37,9 @@ export function Hero2() {
   const [particleCount, setParticleCount] = useState(30);
 
   useEffect(() => {
-    // Detect mobile on client
     if (typeof window !== 'undefined') {
       const handleResize = () => {
-        setParticleCount(window.innerWidth < 768 ? 10 : 30);
+        setParticleCount(window.innerWidth < 768 ? 0 : 30); // 0 for mobile
       };
       handleResize();
       window.addEventListener('resize', handleResize);
@@ -127,23 +126,24 @@ export function Hero2() {
       />
 
       {/* Floating particles */}
-      {[...Array(particleCount)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute w-1 h-1 rounded-full bg-white"
-          style={{
-            left: `${mulberry32(1337 + i * 101)() * 100}%`,
-            top: `${mulberry32(7331 + i * 131)() * 100}%`,
-          }}
-          animate={{ y: [0, -100, 0], opacity: [0, 1, 0] }}
-          transition={{
-            duration: mulberry32(9001 + i * 71)() * 5 + 3,
-            repeat: Infinity,
-            delay: mulberry32(4242 + i * 97)() * 5,
-            ease: 'easeInOut',
-          }}
-        />
-      ))}
+      {particleCount > 0 &&
+        [...Array(particleCount)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1 h-1 rounded-full bg-white"
+            style={{
+              left: `${mulberry32(1337 + i * 101)() * 100}%`,
+              top: `${mulberry32(7331 + i * 131)() * 100}%`,
+            }}
+            animate={{ y: [0, -100, 0], opacity: [0, 1, 0] }}
+            transition={{
+              duration: mulberry32(9001 + i * 71)() * 5 + 3,
+              repeat: Infinity,
+              delay: mulberry32(4242 + i * 97)() * 5,
+              ease: 'easeInOut',
+            }}
+          />
+        ))}
 
       {/* Grid overlay */}
       <div
