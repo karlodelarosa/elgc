@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   HomeIcon,
@@ -43,6 +44,9 @@ const drawerMenu: MenuItemType[] = [
 
 export function TopMenu() {
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [isMenuVisible, setIsMenuVisible] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+  const lastScrollY = useRef(0);
   const targetEventDate = new Date(2026, 5, 13);
   const now = new Date();
   const millisecondsPerDay = 1000 * 60 * 60 * 24;
@@ -54,21 +58,87 @@ export function TopMenu() {
       daysLeft > 0
         ? `${daysLeft} day${daysLeft === 1 ? '' : 's'} left!`
         : daysLeft === 0
-        ? 'Today!'
-        : 'Event has passed',
+          ? 'Today!'
+          : 'Event has passed',
   };
+
+  useEffect(() => {
+    lastScrollY.current = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const delta = currentScrollY - lastScrollY.current;
+
+      if (currentScrollY <= 0) {
+        setIsMenuVisible(true);
+        lastScrollY.current = currentScrollY;
+        return;
+      }
+
+      // Ignore tiny scroll changes to prevent jittery show/hide transitions.
+      if (Math.abs(delta) < 8) {
+        return;
+      }
+
+      if (delta > 0 && currentScrollY > 80) {
+        setIsMenuVisible(false);
+      } else if (delta < 0) {
+        setIsMenuVisible(true);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (drawerOpen) {
+      setIsMenuVisible(true);
+    }
+  }, [drawerOpen]);
+
+  useEffect(() => {
+    const updateViewport = () => setIsMobile(window.innerWidth < 768);
+    updateViewport();
+    window.addEventListener('resize', updateViewport);
+    return () => window.removeEventListener('resize', updateViewport);
+  }, []);
+
+  const mobileDrawerMenu = [...primaryMenu, ...drawerMenu];
+  const activeDrawerMenu = isMobile ? mobileDrawerMenu : drawerMenu;
 
   return (
     <>
       <motion.div
         className="fixed inset-x-0 top-0 z-[999] backdrop-blur-xl bg-black/50"
         initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.2 }}
+        animate={{
+          opacity: isMenuVisible ? 1 : 0,
+          y: isMenuVisible ? 0 : -110,
+        }}
+        transition={{ duration: 0.22, ease: 'easeOut' }}
       >
-        <Brand />
+        <div className="hidden md:block">
+          <Brand />
+        </div>
 
-        <div className="mx-auto px-6 py-4 flex justify-between items-center">
+        <div className="mx-auto px-6 py-4 flex items-center justify-between md:hidden">
+          <Link href="/" className="text-sm tracking-[.50em] uppercase font-bold text-cyan-200">
+            ELGC
+          </Link>
+
+          <button
+            onClick={() => setDrawerOpen(true)}
+            className="p-2 rounded-lg text-slate-900 dark:text-white hover:bg-white/10 transition"
+            aria-label="Open navigation drawer"
+          >
+            <MenuIcon size={22} className="text-inherit" />
+          </button>
+        </div>
+
+        <div className="mx-auto px-6 py-4 hidden md:flex justify-between items-center">
           {/* LEFT */}
           <EventCTA title={nextEvent.title} countdown={nextEvent.countdown} />
 
@@ -92,7 +162,7 @@ export function TopMenu() {
       </motion.div>
 
       <AnimatePresence>
-        {drawerOpen && <Drawer menu={drawerMenu} onClose={() => setDrawerOpen(false)} />}
+        {drawerOpen && <Drawer menu={activeDrawerMenu} onClose={() => setDrawerOpen(false)} />}
       </AnimatePresence>
     </>
   );

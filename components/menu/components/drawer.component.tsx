@@ -14,7 +14,7 @@ export function Drawer({ menu, onClose }: DrawerProps) {
     <>
       <motion.button
         aria-label="Close menu"
-        className="fixed left-0 right-0 bottom-0 top-[120px] md:top-[104px] xl:top-[88px] z-[998] bg-black/15"
+        className="fixed left-0 right-0 bottom-0 top-[68px] md:top-[104px] xl:top-[88px] z-[998] bg-black/15"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -23,7 +23,7 @@ export function Drawer({ menu, onClose }: DrawerProps) {
       />
 
       <motion.div
-        className="fixed right-0 top-[120px] md:top-[104px] xl:top-[88px] h-[calc(100vh-120px)] md:h-[calc(100vh-104px)] xl:h-[calc(100vh-88px)] w-[320px] z-[999] p-8 flex flex-col border-l border-white/15 backdrop-blur-2xl bg-white/5 text-white shadow-[0_0_35px_rgba(0,0,0,0.45)]"
+        className="fixed right-0 top-[68px] md:top-[104px] xl:top-[88px] h-[calc(100vh-68px)] md:h-[calc(100vh-104px)] xl:h-[calc(100vh-88px)] w-[320px] z-[999] p-8 flex flex-col border-l border-white/15 backdrop-blur-2xl bg-white/5 text-white shadow-[0_0_35px_rgba(0,0,0,0.45)]"
         initial={{ x: 340, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         exit={{ x: 340, opacity: 0 }}
