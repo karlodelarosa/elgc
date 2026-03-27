@@ -43,10 +43,19 @@ const drawerMenu: MenuItemType[] = [
 
 export function TopMenu() {
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const targetEventDate = new Date(2026, 5, 13);
+  const now = new Date();
+  const millisecondsPerDay = 1000 * 60 * 60 * 24;
+  const daysLeft = Math.ceil((targetEventDate.getTime() - now.getTime()) / millisecondsPerDay);
 
   const nextEvent = {
     title: 'Family Day – June 13',
-    countdown: '3 days left!',
+    countdown:
+      daysLeft > 0
+        ? `${daysLeft} day${daysLeft === 1 ? '' : 's'} left!`
+        : daysLeft === 0
+        ? 'Today!'
+        : 'Event has passed',
   };
 
   return (
