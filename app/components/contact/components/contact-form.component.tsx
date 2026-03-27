@@ -9,7 +9,7 @@ export function ContactForm() {
   if (state.succeeded) {
     return (
       <p className="text-green-500 font-medium text-center mt-4">
-        Thanks for reaching out! We'll get back to you soon.
+        Thanks for reaching out! We will get back to you soon.
       </p>
     );
   }
