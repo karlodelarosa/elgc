@@ -1,5 +1,4 @@
-'use client';
-
+// HeroText.tsx
 import { motion, AnimatePresence } from 'framer-motion';
 import { QuantumButton } from '@/components/button';
 import { useState, useEffect } from 'react';
@@ -15,7 +14,7 @@ export function HeroText({
 }: HeroTextProps) {
   const [currentLine, setCurrentLine] = useState(0);
 
-  // Cycle lines every 4 seconds (fade in/out)
+  // Cycle lines every 10 seconds (fade in/out)
   useEffect(() => {
     if (lines.length <= 1) return;
     const interval = setInterval(() => {
@@ -23,6 +22,15 @@ export function HeroText({
     }, 10000);
     return () => clearInterval(interval);
   }, [lines]);
+
+  const scrollToSection = () => {
+    const el = document.getElementById('church-intro');
+    if (el) {
+      const yOffset = -50; // 50px above
+      const y = el.getBoundingClientRect().top + window.scrollY + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  };
 
   return (
     <div className="absolute bottom-24 z-30 w-full text-center px-6 flex flex-col items-center gap-6">
@@ -44,7 +52,7 @@ export function HeroText({
         animate={{ opacity: 1 }}
         transition={{ duration: 1.2, delay: 0.2 }}
       >
-        <QuantumButton label={buttonLabel} />
+        <QuantumButton label={buttonLabel} onClick={scrollToSection} />
       </motion.div>
     </div>
   );

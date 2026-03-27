@@ -4,7 +4,7 @@ import React from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 
 export function ContactForm() {
-  const [state, handleSubmit] = useForm("mjgpgkvo"); // Your Formspree ID
+  const [state, handleSubmit] = useForm('mjgpgkvo'); // Your Formspree ID
 
   if (state.succeeded) {
     return (
@@ -25,11 +25,7 @@ export function ContactForm() {
         className="w-full p-3 bg-black/40 border border-zinc-700 rounded-lg focus:outline-none focus:border-purple-500"
         required
       />
-      <ValidationError 
-        prefix="Name"
-        field="name"
-        errors={state.errors}
-      />
+      <ValidationError prefix="Name" field="name" errors={state.errors} />
 
       {/* Email */}
       <input
@@ -40,11 +36,7 @@ export function ContactForm() {
         className="w-full p-3 bg-black/40 border border-zinc-700 rounded-lg focus:outline-none focus:border-purple-500"
         required
       />
-      <ValidationError 
-        prefix="Email"
-        field="email"
-        errors={state.errors}
-      />
+      <ValidationError prefix="Email" field="email" errors={state.errors} />
 
       {/* Message */}
       <textarea
@@ -55,11 +47,7 @@ export function ContactForm() {
         className="w-full p-3 bg-black/40 border border-zinc-700 rounded-lg focus:outline-none focus:border-purple-500"
         required
       />
-      <ValidationError 
-        prefix="Message"
-        field="message"
-        errors={state.errors}
-      />
+      <ValidationError prefix="Message" field="message" errors={state.errors} />
 
       {/* Submit Button */}
       <button

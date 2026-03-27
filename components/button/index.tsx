@@ -251,12 +251,19 @@ export function FrostButton({ label = 'Freeze Time' }) {
   );
 }
 
-export function QuantumButton({ label = 'Execute' }) {
+export type QuantumButtonProps = {
+  label?: string;
+  onClick?: () => void;
+};
+
+export function QuantumButton({ label = 'Execute', onClick }: QuantumButtonProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const container = ref.current;
     if (!container) return;
+
+    // Ripple effect
     const rect = container.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
@@ -276,6 +283,9 @@ export function QuantumButton({ label = 'Execute' }) {
       ease: 'power2.out',
       onComplete: () => ring.remove(),
     });
+
+    // Call external onClick if provided (e.g., scroll)
+    if (onClick) onClick();
   };
 
   return (

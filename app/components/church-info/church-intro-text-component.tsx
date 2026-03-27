@@ -2,7 +2,10 @@ import { GradientHeading } from '@/components/heading-gradient';
 
 export function ChurchIntroText() {
   return (
-    <section className="w-full py-64 px-6 flex items-center justify-center bg-black">
+    <section
+      id="church-intro"
+      className="w-full py-32 lg:py-64 px-6 flex items-center justify-center bg-black"
+    >
       <div className="max-w-4xl text-center space-y-8">
         <div className="text-5xl md:text-6xl text-white">
           <GradientHeading>Emmanuels Living Gospel Church</GradientHeading>

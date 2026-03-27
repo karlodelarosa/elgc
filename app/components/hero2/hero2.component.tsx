@@ -1,4 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+'use client';
+
+import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion } from 'framer-motion';
@@ -31,17 +33,27 @@ export function Hero2() {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
 
+  // State to control particle count for mobile
+  const [particleCount, setParticleCount] = useState(30);
+
+  useEffect(() => {
+    // Detect mobile on client
+    if (typeof window !== 'undefined') {
+      const handleResize = () => {
+        setParticleCount(window.innerWidth < 768 ? 10 : 30);
+      };
+      handleResize();
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }
+  }, []);
+
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Animate the entire title as one element
       if (titleRef.current) {
         gsap.fromTo(
           titleRef.current,
-          {
-            opacity: 0,
-            y: 100,
-            rotationX: -90,
-          },
+          { opacity: 0, y: 100, rotationX: -90 },
           {
             opacity: 1,
             y: 0,
@@ -53,25 +65,14 @@ export function Hero2() {
         );
       }
 
-      // Subtitle fade in
       if (subtitleRef.current) {
         gsap.fromTo(
           subtitleRef.current,
-          {
-            opacity: 0,
-            y: 30,
-          },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 1.5,
-            delay: 0.8,
-            ease: 'power3.out',
-          },
+          { opacity: 0, y: 30 },
+          { opacity: 1, y: 0, duration: 1.5, delay: 0.8, ease: 'power3.out' },
         );
       }
 
-      // Fade out on scroll
       gsap.to('.hero-content', {
         scrollTrigger: {
           trigger: heroRef.current,
@@ -101,16 +102,8 @@ export function Hero2() {
           background: 'radial-gradient(circle, rgba(167, 139, 250, 0.4) 0%, transparent 70%)',
           filter: 'blur(80px)',
         }}
-        animate={{
-          scale: [1, 1.2, 1],
-          x: [-50, 50, -50],
-          y: [-50, 50, -50],
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
+        animate={{ scale: [1, 1.2, 1], x: [-50, 50, -50], y: [-50, 50, -50] }}
+        transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
       />
 
       <motion.div
@@ -119,16 +112,8 @@ export function Hero2() {
           background: 'radial-gradient(circle, rgba(244, 114, 182, 0.3) 0%, transparent 70%)',
           filter: 'blur(80px)',
         }}
-        animate={{
-          scale: [1.2, 1, 1.2],
-          x: [50, -50, 50],
-          y: [50, -50, 50],
-        }}
-        transition={{
-          duration: 18,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
+        animate={{ scale: [1.2, 1, 1.2], x: [50, -50, 50], y: [50, -50, 50] }}
+        transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
       />
 
       <motion.div
@@ -137,19 +122,12 @@ export function Hero2() {
           background: 'radial-gradient(circle, rgba(251, 146, 60, 0.25) 0%, transparent 70%)',
           filter: 'blur(80px)',
         }}
-        animate={{
-          scale: [1, 1.3, 1],
-          rotate: [0, 180, 360],
-        }}
-        transition={{
-          duration: 25,
-          repeat: Infinity,
-          ease: 'linear',
-        }}
+        animate={{ scale: [1, 1.3, 1], rotate: [0, 180, 360] }}
+        transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
       />
 
       {/* Floating particles */}
-      {[...Array(30)].map((_, i) => (
+      {[...Array(particleCount)].map((_, i) => (
         <motion.div
           key={i}
           className="absolute w-1 h-1 rounded-full bg-white"
@@ -157,10 +135,7 @@ export function Hero2() {
             left: `${mulberry32(1337 + i * 101)() * 100}%`,
             top: `${mulberry32(7331 + i * 131)() * 100}%`,
           }}
-          animate={{
-            y: [0, -100, 0],
-            opacity: [0, 1, 0],
-          }}
+          animate={{ y: [0, -100, 0], opacity: [0, 1, 0] }}
           transition={{
             duration: mulberry32(9001 + i * 71)() * 5 + 3,
             repeat: Infinity,
@@ -182,8 +157,6 @@ export function Hero2() {
         }}
       />
 
-      {/* Inside your Hero2 component, just above your .hero-content div */}
-
       {/* ELGC Background Text */}
       <motion.div
         className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
@@ -192,7 +165,7 @@ export function Hero2() {
           fontWeight: 400,
           fontSize: 'calc(100vh + 8rem)',
           lineHeight: 1,
-          color: 'rgba(255,255,255,0.03)', // base translucent
+          color: 'rgba(255,255,255,0.03)',
           textTransform: 'uppercase',
           letterSpacing: '-0.05em',
           userSelect: 'none',
@@ -208,7 +181,6 @@ export function Hero2() {
         <span className="bg-gradient-to-r from-pink-400 hidden md:inline via-purple-400 to-cyan-400 bg-clip-text text-transparent animate-color-shift opacity-20">
           ELGCHURCH
         </span>
-        {/* <span className="opacity-10">HURCH</span> */}
       </motion.div>
 
       {/* Content */}
