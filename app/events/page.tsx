@@ -237,7 +237,9 @@ export default function EventsPage() {
                     <p className="inline-flex w-fit rounded-full border border-purple-300/30 bg-purple-500/10 px-3 py-1 text-xs md:text-sm font-semibold uppercase tracking-[0.14em] text-purple-200 mb-3">
                       {event.category}
                     </p>
-                    <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">{event.title}</h3>
+                    <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                      {event.title}
+                    </h3>
                     <p className="text-zinc-300 leading-relaxed text-base md:text-lg">
                       {event.description}
                     </p>
