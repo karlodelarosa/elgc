@@ -1,8 +1,14 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { XIcon } from 'lucide-react';
-import { MenuItemType } from '../top-menu.component';
+import { X as XIcon, Calendar as CalendarIcon, Users as UsersIcon } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+
+export interface MenuItemType {
+  label: string;
+  icon: React.ComponentType<{ className?: string }>;
+  url?: string; // added optional url
+}
 
 interface DrawerProps {
   menu: MenuItemType[];
@@ -10,8 +16,18 @@ interface DrawerProps {
 }
 
 export function Drawer({ menu, onClose }: DrawerProps) {
+  const router = useRouter();
+
+  const handleNavigate = (url?: string) => {
+    if (url) {
+      router.push(url);
+      onClose(); // close drawer after navigation
+    }
+  };
+
   return (
     <>
+      {/* Background Overlay */}
       <motion.button
         aria-label="Close menu"
         className="fixed left-0 right-0 bottom-0 top-[68px] md:top-[104px] xl:top-[88px] z-[998] bg-black/15"
@@ -22,6 +38,7 @@ export function Drawer({ menu, onClose }: DrawerProps) {
         onClick={onClose}
       />
 
+      {/* Drawer Panel */}
       <motion.div
         className="fixed right-0 top-[68px] md:top-[104px] xl:top-[88px] h-[calc(100vh-68px)] md:h-[calc(100vh-104px)] xl:h-[calc(100vh-88px)] w-[320px] z-[999] p-8 flex flex-col border-l border-white/15 backdrop-blur-2xl bg-white/5 text-white shadow-[0_0_35px_rgba(0,0,0,0.45)]"
         initial={{ x: 340, opacity: 0 }}
@@ -54,6 +71,7 @@ export function Drawer({ menu, onClose }: DrawerProps) {
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.05 * index, duration: 0.25 }}
               whileHover={{ x: 3 }}
+              onClick={() => handleNavigate(item.url)}
             >
               <item.icon className="h-5 w-5 text-pink-200" />
               <span>{item.label}</span>
@@ -61,8 +79,12 @@ export function Drawer({ menu, onClose }: DrawerProps) {
           ))}
         </div>
 
+        {/* Footer Button */}
         <div className="mt-auto pt-8 relative">
-          <button className="w-full py-3 rounded-xl bg-gradient-to-r from-fuchsia-500/70 to-indigo-500/70 text-white font-semibold border border-white/20 hover:from-fuchsia-500/90 hover:to-indigo-500/90 transition">
+          <button
+            onClick={() => router.push('/donate')}
+            className="w-full py-3 rounded-xl bg-gradient-to-r from-fuchsia-500/70 to-indigo-500/70 text-white font-semibold border border-white/20 hover:from-fuchsia-500/90 hover:to-indigo-500/90 transition"
+          >
             Help Us Build
           </button>
         </div>

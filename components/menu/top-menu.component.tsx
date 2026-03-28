@@ -20,7 +20,7 @@ import { DesktopMenu } from './components/desktop-menu.component';
 export interface MenuItemType {
   label: string;
   icon: LucideIcon;
-  href?: string;
+  url?: string;
 }
 
 const primaryMenu: MenuItemType[] = [
@@ -29,13 +29,11 @@ const primaryMenu: MenuItemType[] = [
   { label: 'Gallery', icon: ImageIcon },
 ];
 
-const drawerMenu: MenuItemType[] = [
-  { label: 'Events', icon: CalendarIcon },
-  // { label: 'Music', icon: MusicIcon },
-  // { label: 'Blog', icon: BookIcon },
-  { label: 'Ministries', icon: UsersIcon },
-  { label: 'Life at Church', icon: UsersIcon },
-  { label: 'Projects', icon: UsersIcon },
+export const drawerMenu: MenuItemType[] = [
+  { label: 'Events', icon: CalendarIcon, url: '/events' },
+  { label: 'Ministries', icon: UsersIcon, url: '/ministries' },
+  { label: 'Life at Church', icon: UsersIcon, url: '/life-at-church' },
+  { label: 'Projects', icon: UsersIcon, url: '/projects' },
 ];
 
 export function TopMenu() {

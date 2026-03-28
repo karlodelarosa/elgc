@@ -1,54 +1,96 @@
-'use client'
+'use client';
 
-import { Heart } from 'lucide-react'
-import { motion } from 'framer-motion'
-import { useForm, ValidationError } from '@formspree/react'
+import { Heart } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { useForm, ValidationError } from '@formspree/react';
 
 export default function DonatePage() {
-  const [state, handleSubmit] = useForm('xjgpgdnv') // your Formspree ID
+  const [state, handleSubmit] = useForm('xjgpgdnv'); // your Formspree ID
+
+  // Motion variants
+  const container = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+  };
 
   return (
     <div className="min-h-screen w-full bg-black text-white px-6 py-16 flex items-center justify-center">
-      <div className="flex flex-col md:flex-row gap-12 max-w-7xl w-full">
-        
+      <motion.div
+        className="flex flex-col md:flex-row gap-12 max-w-7xl w-full"
+        variants={container}
+        initial="hidden"
+        animate="show"
+      >
         {/* Left Column: Info */}
-        <div className="flex-1 flex flex-col justify-center items-center md:items-start gap-6 text-center md:text-left">
-          <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 via-purple-300 to-pink-400">
+        <motion.div
+          className="flex-1 flex flex-col justify-center items-center md:items-start gap-6 text-center md:text-left"
+          variants={item}
+        >
+          <motion.h1
+            className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 via-purple-300 to-pink-400"
+            variants={item}
+          >
             Support Our Vision
-          </h1>
-          <p className="text-gray-300 text-lg md:text-xl max-w-xl">
-            Your interest and encouragement help us move forward in our mission: 
-            building a new church space, supporting ministries, and reaching the community. 
-            Let us know how you’d like to get involved.
-          </p>
+          </motion.h1>
 
-          {/* <ul className="flex flex-col gap-4 text-gray-400 text-lg mt-4">
-            <li>• K2K – New Church Building Project</li>
-            <li>• Support ongoing ministries and outreach programs</li>
-            <li>• Church renovations and maintenance</li>
-          </ul>
-
-          <div className="mt-6 flex flex-col gap-4 text-center md:text-left">
-            <p className="text-gray-300">Other ways to support us:</p>
-            <ul className="flex flex-col gap-2 text-gray-400 text-base">
-              <li>• Bank Transfer: <span className="text-pink-400">[Bank Placeholder]</span></li>
-              <li>• GCash: <span className="text-pink-400">[GCash Placeholder]</span></li>
-            </ul>
-            <p className="text-gray-500 mt-2 italic">Online support via other platforms will be available soon!</p>
-          </div> */}
-        </div>
+          <motion.p className="text-gray-300 text-lg md:text-xl max-w-xl" variants={item}>
+            Your interest and encouragement help us move forward in our mission: building a new
+            church space, supporting ministries, and reaching the community. Let us know how you’d
+            like to get involved.
+          </motion.p>
+        </motion.div>
 
         {/* Right Column: Contact / Support Form */}
-        <div className="flex-1 flex flex-col justify-center items-center w-full">
-          <div className="w-full max-w-md bg-neutral-900/50 backdrop-blur-md rounded-3xl p-8 shadow-lg flex flex-col">
-            <h2 className="text-2xl font-semibold mb-6 text-pink-400 text-center">Get Involved</h2>
+        <motion.div
+          className="flex-1 flex flex-col justify-center items-center w-full"
+          variants={item}
+        >
+          <motion.div
+            className="w-full max-w-md bg-neutral-900/50 backdrop-blur-md rounded-3xl p-8 shadow-lg flex flex-col"
+            variants={item}
+          >
+            <motion.h2
+              className="text-2xl font-semibold mb-6 text-pink-400 text-center"
+              variants={item}
+            >
+              Get Involved
+            </motion.h2>
 
             {state.succeeded ? (
-              <p className="text-green-500 font-medium text-center mt-4 text-lg">
-                Thank you for reaching out! We’ll connect with you soon ❤️
-              </p>
+              <motion.div
+                className="w-full max-w-md bg-neutral-900/50 backdrop-blur-md rounded-3xl p-8 shadow-lg flex flex-col items-center justify-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                <motion.h2
+                  className="text-2xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 via-purple-300 to-pink-400 mb-4"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2, duration: 0.8 }}
+                >
+                  Message Sent!
+                </motion.h2>
+                <motion.p
+                  className="text-gray-300 text-center text-lg"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3, duration: 0.8 }}
+                >
+                  Thank you for reaching out! We will connect with you soon ❤️
+                </motion.p>
+              </motion.div>
             ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+              <motion.form onSubmit={handleSubmit} className="flex flex-col gap-4" variants={item}>
                 <input
                   type="text"
                   name="name"
@@ -89,12 +131,11 @@ export default function DonatePage() {
                   <Heart className="w-4 h-4 md:w-5 md:h-5" />
                   <span>Send Message</span>
                 </motion.div>
-              </form>
+              </motion.form>
             )}
-          </div>
-        </div>
-
-      </div>
+          </motion.div>
+        </motion.div>
+      </motion.div>
     </div>
-  )
+  );
 }
