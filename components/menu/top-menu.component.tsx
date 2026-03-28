@@ -2,16 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  HomeIcon,
-  UserIcon,
-  MusicIcon,
-  CalendarIcon,
-  ImageIcon,
-  BookIcon,
-  UsersIcon,
-  LucideIcon,
-} from 'lucide-react';
+import { UserIcon, CalendarIcon, ImageIcon, UsersIcon, LucideIcon } from 'lucide-react';
 
 import { Drawer } from './components/drawer.component';
 import { MobileMenu } from './components/mobile-menu.component';
@@ -25,8 +16,8 @@ export interface MenuItemType {
 
 const primaryMenu: MenuItemType[] = [
   // { label: 'Home', icon: HomeIcon },
-  { label: 'About', icon: UserIcon },
-  { label: 'Gallery', icon: ImageIcon },
+  { label: 'About', icon: UserIcon, url: '/about' },
+  { label: 'Gallery', icon: ImageIcon, url: '/gallery' },
 ];
 
 export const drawerMenu: MenuItemType[] = [

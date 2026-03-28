@@ -2,12 +2,12 @@
 
 import { SecondaryPageLayout } from '../components/page-layout/secondary-page-layout.component';
 import Image from 'next/image';
-import { Music, Image as ImageIcon, Users, Heart, BookOpen, Speaker } from 'lucide-react';
+import { Music, Image as ImageIcon, Users, BookOpen, Speaker, type LucideIcon } from 'lucide-react';
 
 type Ministry = {
   title: string;
   description: string;
-  icon: React.ComponentType<any>;
+  icon: LucideIcon;
   img: string;
 };
 

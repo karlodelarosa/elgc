@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowLeft, Filter, Grid3x3, Grid2x2, LayoutGrid, X } from 'lucide-react';
+import { Filter, Grid3x3, Grid2x2, LayoutGrid, X } from 'lucide-react';
 import { ImageWithFallback } from '../components/ui/image-with-fallback/image-with-fallback';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -195,7 +195,9 @@ export default function GalleryPage() {
           <div className="flex items-center gap-3">
             <select
               value={sortBy}
-              onChange={(e) => setSortBy(e.target.value as any)}
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+                setSortBy(e.target.value as 'date-desc' | 'date-asc' | 'title')
+              }
               className="px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg border border-white/10 text-white cursor-pointer transition-colors"
             >
               <option value="date-desc">Newest First</option>

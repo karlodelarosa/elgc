@@ -2,13 +2,13 @@
 
 import { SecondaryPageLayout } from '../components/page-layout/secondary-page-layout.component';
 import Image from 'next/image';
-import { Heart, Home, RefreshCw, Users } from 'lucide-react';
+import { Heart, Home, RefreshCw, Users, type LucideIcon } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 type Project = {
   title: string;
   description: string;
-  icon: React.ComponentType<any>;
+  icon: LucideIcon;
   img: string;
 };
 
