@@ -40,7 +40,7 @@ export function HeroText({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 1, delay: 3 }}
           className="text-2xl md:text-3xl text-zinc-300"
         >
           {lines[currentLine]}
@@ -50,7 +50,7 @@ export function HeroText({
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1.2, delay: 0.2 }}
+        transition={{ duration: 1.2, delay: 3.5 }}
       >
         <QuantumButton label={buttonLabel} onClick={scrollToSection} />
       </motion.div>
