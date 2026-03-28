@@ -17,7 +17,7 @@ interface GalleryImage {
   date: string;
 }
 
-export const CATEGORIES = {
+const CATEGORIES = {
   ALL: 'All',
   WORSHIP: 'Worship',
   COMMUNITY: 'Community',
@@ -29,7 +29,7 @@ export const CATEGORIES = {
   SPECIAL_EVENTS: 'Special Events',
 } as const;
 
-export const CATEGORY_VALUES = Object.values(CATEGORIES);
+const CATEGORY_VALUES = Object.values(CATEGORIES);
 
 const galleryImages: GalleryImage[] = [
   {
