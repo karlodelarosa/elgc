@@ -65,7 +65,7 @@ export function UpcomingEvents() {
       title: 'ALAB: Illuminate',
       description: 'A night of youth worship, creative arts, and powerful messages.',
       image:
-        'https://media.canva.com/v2/image-resize/format:PNG/height:788/quality:100/uri:ifs%3A%2F%2FM%2F813404fb-1365-4ddc-aa0d-5dbfb43c219d/watermark:F/width:940?csig=AAAAAAAAAAAAAAAAAAAAADLg0U93HuXHobdoJ9O_7ubmXhz-j72twnTZNfW_iuc9&exp=1774512447&osig=AAAAAAAAAAAAAAAAAAAAAONtC5lH8bBMyByjYwVvPLZ8_83hpm0tsUodtqPDRSlc&signer=media-rpc&x-canva-quality=screen_2x',
+        '/img/alab-poster.png',
       link: '/events/alab-illuminate',
       gradient: 'from-orange-500 to-pink-500',
     },

@@ -24,18 +24,18 @@ export interface MenuItemType {
 }
 
 const primaryMenu: MenuItemType[] = [
-  { label: 'Home', icon: HomeIcon },
+  // { label: 'Home', icon: HomeIcon },
   { label: 'About', icon: UserIcon },
-  { label: 'Music', icon: MusicIcon },
+  { label: 'Gallery', icon: ImageIcon },
 ];
 
 const drawerMenu: MenuItemType[] = [
   { label: 'Events', icon: CalendarIcon },
-  { label: 'Gallery', icon: ImageIcon },
-  { label: 'Blog', icon: BookIcon },
+  // { label: 'Music', icon: MusicIcon },
+  // { label: 'Blog', icon: BookIcon },
   { label: 'Ministries', icon: UsersIcon },
-  { label: 'Life Groups', icon: UsersIcon },
-  { label: 'Projects', icon: UsersIcon },
+  { label: 'Life at Church', icon: UsersIcon },
+  // { label: 'Projects', icon: UsersIcon },
 ];
 
 export function TopMenu() {
