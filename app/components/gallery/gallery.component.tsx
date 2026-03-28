@@ -78,23 +78,23 @@ export function Gallery() {
 
   const images = [
     {
-      url: 'https://images.unsplash.com/photo-1729089049653-24312fdca908?q=80&w=1080',
+      url: '/img/worship1.jpg',
       title: 'Worship Experience',
     },
     {
-      url: 'https://images.unsplash.com/photo-1667068114532-97a1ce6d0a52?q=80&w=1080',
-      title: 'Prayer Meeting',
+      url: '/img/sunday1.jpg',
+      title: 'Sunday Service',
     },
     {
-      url: 'https://images.unsplash.com/photo-1760319726429-fcda77d3cb05?q=80&w=1080',
+      url: '/img/hiking1.jpg',
       title: 'Community',
     },
     {
-      url: 'https://images.unsplash.com/photo-1550541231-56ddb7f844ec?q=80&w=1080',
+      url: '/img/fellowship1.jpg',
       title: 'Fellowship',
     },
     {
-      url: 'https://images.unsplash.com/photo-1681992155294-278fd9357c84?q=80&w=1080',
+      url: '/img/youth-retreat1.jpg',
       title: 'Events',
     },
   ];

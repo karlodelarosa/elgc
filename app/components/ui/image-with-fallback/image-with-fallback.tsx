@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import Image, { ImageProps } from 'next/image';
 
@@ -7,20 +9,41 @@ const ERROR_IMG_SRC =
 interface ImageWithFallbackProps extends Omit<ImageProps, 'src'> {
   src: string;
   alt: string;
+  className?: string;
 }
 
-export function ImageWithFallback({ src, alt, ...rest }: ImageWithFallbackProps) {
+export function ImageWithFallback({ src, alt, className, ...rest }: ImageWithFallbackProps) {
   const [didError, setDidError] = useState(false);
 
   const handleError = () => setDidError(true);
 
+  // separate out `fill` so it doesn't get passed to DOM on fallback
+  const { fill, ...imgProps } = rest;
+
   return didError ? (
-    <div className="inline-block bg-gray-100 text-center align-middle" {...rest}>
-      <div className="flex items-center justify-center w-full h-full">
-        <Image src={ERROR_IMG_SRC} alt="Error loading image" width={88} height={88} />
-      </div>
+    <div
+      className={`relative w-full h-full bg-gray-100 flex items-center justify-center ${className}`}
+    >
+      <img src={ERROR_IMG_SRC} alt="Error loading image" className="w-20 h-20 object-contain" />
+    </div>
+  ) : fill ? (
+    <div className={`relative w-full h-full ${className}`}>
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        onError={handleError}
+        {...imgProps}
+        className="object-cover"
+      />
     </div>
   ) : (
-    <Image src={src} alt={alt} onError={handleError} {...rest} />
+    <Image
+      src={src}
+      alt={alt}
+      onError={handleError}
+      className={`object-cover ${className}`}
+      {...imgProps}
+    />
   );
 }
