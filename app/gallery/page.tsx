@@ -90,7 +90,7 @@ const galleryImages: GalleryImage[] = [
   },
   {
     id: 18,
-    url: '/img/alab1.jpg',
+    url: '/img/alab1.JPG',
     title: 'ALAB ticket Dissemination ',
     category: 'Community',
     date: '2026-03-18',

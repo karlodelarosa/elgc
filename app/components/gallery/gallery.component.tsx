@@ -82,7 +82,7 @@ export function Gallery() {
       title: 'Worship Experience',
     },
     {
-      url: '/img/sunday1.jpg',
+      url: '/img/sunday1.JPG',
       title: 'Sunday Service',
     },
     {
