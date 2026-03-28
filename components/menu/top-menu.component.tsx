@@ -35,7 +35,7 @@ const drawerMenu: MenuItemType[] = [
   // { label: 'Blog', icon: BookIcon },
   { label: 'Ministries', icon: UsersIcon },
   { label: 'Life at Church', icon: UsersIcon },
-  // { label: 'Projects', icon: UsersIcon },
+  { label: 'Projects', icon: UsersIcon },
 ];
 
 export function TopMenu() {

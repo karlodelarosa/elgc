@@ -64,8 +64,7 @@ export function UpcomingEvents() {
       date: 'April 10',
       title: 'ALAB: Illuminate',
       description: 'A night of youth worship, creative arts, and powerful messages.',
-      image:
-        '/img/alab-poster.png',
+      image: '/img/alab-poster.png',
       link: '/events/alab-illuminate',
       gradient: 'from-orange-500 to-pink-500',
     },
