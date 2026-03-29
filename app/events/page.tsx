@@ -137,7 +137,6 @@ const events = [
   },
 ];
 
-
 export default function EventsPage() {
   const [searchText, setSearchText] = useState('');
 
@@ -145,33 +144,23 @@ export default function EventsPage() {
     const query = searchText.trim().toLowerCase();
     if (!query) return events;
 
-    return events.filter((event) =>
-      event.title.toLowerCase().includes(query),
-    );
+    return events.filter((event) => event.title.toLowerCase().includes(query));
   }, [searchText]);
 
   return (
     <div className="min-h-screen bg-black text-white pt-36">
-
       {/* Controls Bar (same pattern as Gallery) */}
       <div className="container mx-auto px-6 py-8 sticky top-0 z-40 bg-black/80 backdrop-blur-lg border-b border-white/10">
-
         <div className="flex flex-wrap items-center justify-between gap-4">
-
           {/* Left */}
           <div>
             <h1 className="text-3xl font-bold">Church Events</h1>
-            <p className="text-zinc-400 text-sm">
-              Stay connected with our upcoming gatherings.
-            </p>
+            <p className="text-zinc-400 text-sm">Stay connected with our upcoming gatherings.</p>
           </div>
 
           {/* Right - Search */}
           <div className="relative w-full sm:w-[360px]">
-            <Search
-              size={18}
-              className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500"
-            />
+            <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500" />
 
             <input
               type="text"
@@ -186,7 +175,6 @@ export default function EventsPage() {
 
       {/* Content */}
       <div className="container mx-auto px-6 py-12">
-
         {/* Results count */}
         <div className="mb-8 text-zinc-400">
           Showing {filteredEvents.length} of {events.length} events
@@ -200,7 +188,6 @@ export default function EventsPage() {
           </div>
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
             {filteredEvents.map((event, idx) => (
               <motion.article
                 key={event.id}
@@ -214,16 +201,11 @@ export default function EventsPage() {
                   {event.category}
                 </span>
 
-                <h3 className="text-xl font-semibold mb-3">
-                  {event.title}
-                </h3>
+                <h3 className="text-xl font-semibold mb-3">{event.title}</h3>
 
-                <p className="text-zinc-400 text-sm mb-6 flex-grow">
-                  {event.description}
-                </p>
+                <p className="text-zinc-400 text-sm mb-6 flex-grow">{event.description}</p>
 
                 <div className="space-y-2 text-sm text-zinc-300">
-
                   <div className="flex items-center gap-2">
                     <CalendarDays size={16} className="text-purple-300" />
                     {event.date}
@@ -238,11 +220,9 @@ export default function EventsPage() {
                     <MapPin size={16} className="text-purple-300" />
                     {event.location}
                   </div>
-
                 </div>
               </motion.article>
             ))}
-
           </div>
         )}
       </div>
