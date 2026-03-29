@@ -97,6 +97,10 @@ export function Gallery() {
       url: '/img/youth-retreat1.jpg',
       title: 'Events',
     },
+    {
+      url: '/img/vacation2.jpg',
+      title: 'Ministry Retreat',
+    },
   ];
 
   return (

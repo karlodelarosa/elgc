@@ -79,7 +79,7 @@ const galleryImages: GalleryImage[] = [
     url: '/img/youth-retreat1.jpg',
     title: 'Youth Retreat',
     category: 'Special Events',
-    date: '2026-04-05',
+    date: '2025-10-05',
   },
   {
     id: 17,
@@ -115,6 +115,20 @@ const galleryImages: GalleryImage[] = [
     title: 'Family Visitation & Prayer',
     category: 'Outreach',
     date: '2026-03-24',
+  },
+  {
+    id: 30,
+    url: '/img/sunday2.jpg',
+    title: 'Sunday Worship Service',
+    category: 'Worship',
+    date: '2026-03-29',
+  },
+  {
+    id: 31,
+    url: '/img/training2.jpg',
+    title: '16 Fundamental Training',
+    category: 'Training',
+    date: '2026-03-29',
   },
 ];
 
