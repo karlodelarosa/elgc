@@ -122,7 +122,7 @@ export default function AboutPage() {
             For over 15 years, ELGC has been rooted in a passion for sharing Jesus Christ and
             serving the community. We started as a small group of believers and have grown into a
             vibrant church family, committed to making disciples and transforming lives through
-            God's Word.
+            God&aposs Word.
           </p>
 
           <p className="text-lg md:text-xl">
