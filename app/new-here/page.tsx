@@ -110,6 +110,15 @@ export default function NewHerePage() {
           <p className="text-gray-400 mt-4">
             After the service, many people stay to talk, connect, and build friendships.
           </p>
+
+          <div className="flex justify-center pt-12">
+            <a
+              href="/life-at-church"
+              className="inline-flex items-center gap-2 underline underline-offset-4 text-purple-200 transition hover:border-purple-300 hover:bg-purple-500/20 hover:text-white"
+            >
+              Browse schedules
+            </a>
+          </div>
         </motion.section>
 
         {/* CTA */}
