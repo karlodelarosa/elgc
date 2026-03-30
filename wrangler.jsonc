@@ -8,8 +8,8 @@
   "routes": [
     {
       "pattern": "elgchurch.com/*",
-      "zone_name": "elgchurch.com"
-    }
+      "zone_name": "elgchurch.com",
+    },
   ],
   "assets": {
     "directory": ".open-next/assets",
