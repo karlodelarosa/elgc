@@ -26,7 +26,7 @@ export function ChurchIntroText() {
             href="/new-here"
             className="inline-flex items-center gap-2 rounded-full border border-purple-400/40 text-sm bg-purple-500/10 px-6 py-3 text-purple-200 transition hover:border-purple-300 hover:bg-purple-500/20 hover:text-white"
           >
-            New Here? Learn more.
+            New Here?
           </a>
         </div>
       </div>
