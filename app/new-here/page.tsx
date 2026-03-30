@@ -97,7 +97,7 @@ export default function NewHerePage() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="bg-neutral-900/50 border border-white/10 rounded-3xl p-10 text-center"
+          className="bg-neutral-900/50 border border-white/10 rounded-3xl px-6 py-8 lg:p-10 text-center"
         >
           <h2 className="text-2xl md:text-3xl font-semibold mb-6">What Happens on Sunday?</h2>
 
@@ -128,7 +128,7 @@ export default function NewHerePage() {
           </p>
 
           <Link
-            href="/contact"
+            href="/contact-us"
             className="px-6 py-3 rounded-lg border border-pink-500 text-pink-400 font-semibold hover:bg-pink-500/10 transition"
           >
             Contact Us

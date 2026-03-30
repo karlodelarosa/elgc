@@ -104,7 +104,7 @@ export function ContactSection() {
 
           {/* Contact Form */}
           <motion.div
-            className="p-10 rounded-3xl bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-black/20 backdrop-blur-lg border border-white/10"
+            className="px-6 py-8 lg:p-10 rounded-3xl h-fit bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-black/20 backdrop-blur-lg border border-white/10"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

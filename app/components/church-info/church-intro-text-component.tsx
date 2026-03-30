@@ -15,6 +15,15 @@ export function ChurchIntroText() {
           spreading God’s love. Founded to cultivate spiritual growth and service, we welcome
           everyone to join us in pursuing faith, hope, and unity in Christ.
         </p>
+
+        <div className="flex justify-center pt-24">
+          <a
+            href="/new-here"
+            className="inline-flex items-center gap-2 rounded-full border border-purple-400/40 text-sm bg-purple-500/10 px-6 py-3 text-purple-200 transition hover:border-purple-300 hover:bg-purple-500/20 hover:text-white"
+          >
+            New Here?
+          </a>
+        </div>
       </div>
     </section>
   );

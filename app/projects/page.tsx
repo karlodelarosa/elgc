@@ -59,7 +59,7 @@ export default function ProjectsPage() {
             className="w-full h-[36rem] object-cover"
           />
 
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-12">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end px-4 py-6 lg:p-12">
             {/* Icon */}
             {(() => {
               const K2KIcon = projects[0].icon;

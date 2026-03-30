@@ -23,7 +23,7 @@ export default function DonatePage() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-black text-white px-6 py-16 flex items-center justify-center">
+    <div className="min-h-screen w-full bg-black text-white px-6 py-16 flex items-center justify-center mt-6">
       <motion.div
         className="flex flex-col md:flex-row gap-12 max-w-7xl w-full"
         variants={container}
@@ -58,7 +58,7 @@ export default function DonatePage() {
           variants={item}
         >
           <motion.div
-            className="w-full max-w-md bg-neutral-900/50 backdrop-blur-md rounded-3xl p-8 shadow-lg flex flex-col"
+            className="w-full max-w-md bg-neutral-900/50 backdrop-blur-md rounded-3xl p-6 lg:p-8 shadow-lg flex flex-col"
             variants={item}
           >
             <motion.h2

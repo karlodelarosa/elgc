@@ -80,25 +80,39 @@ export default function LifeAtChurchPage() {
           <div className="rounded-[14px] bg-gradient-to-br from-zinc-950 via-black to-zinc-950 px-6 py-10 md:px-12 md:py-12">
             <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/15 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-48 h-48 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
-            <div className="relative flex flex-col md:flex-row md:items-center md:justify-between gap-8">
-              <div className="flex items-start gap-4">
-                <div className="inline-flex p-4 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-600 text-white shadow-lg shrink-0">
-                  <Church size={32} strokeWidth={1.75} />
+            <div className="relative flex flex-col md:flex-row md:items-center md:justify-between gap-6 md:gap-8">
+              <div className="flex flex-col sm:flex-row items-start sm:items-start gap-4">
+                <div className="inline-flex p-3 md:p-4 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-600 text-white shadow-lg shrink-0">
+                  <Church size={28} className="md:w-8 md:h-8" strokeWidth={1.75} />
                 </div>
+
                 <div>
-                  <p className="text-purple-300/90 text-sm font-semibold tracking-widest uppercase mb-2">
-                    Main gathering
+                  <p className="text-purple-300/90 text-xs md:text-sm font-semibold tracking-widest uppercase mb-2">
+                    Main Gathering
                   </p>
-                  <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+
+                  <h2 className="text-2xl md:text-4xl font-bold text-white mb-3 leading-tight">
                     Sunday Worship Service
                   </h2>
-                  <p className="text-white/75 text-base md:text-lg max-w-xl leading-relaxed">
+
+                  <p className="text-white/75 text-sm md:text-lg max-w-xl leading-relaxed">
                     Our central weekly worship with praise, prayer, and preaching. Come expectant to
                     meet with God together as a church family.
                   </p>
+
+                  {/* Mobile schedule */}
+                  <div className="mt-4 md:hidden">
+                    <span className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/15 px-4 py-2 text-sm text-white/90">
+                      <span className="font-semibold text-white">Sunday</span>
+                      <span className="text-white/50">·</span>
+                      <span className="text-purple-200 font-medium">9:00 AM</span>
+                    </span>
+                  </div>
                 </div>
               </div>
-              <div className="flex flex-col items-start md:items-end gap-2 md:text-right shrink-0">
+
+              {/* Desktop schedule */}
+              <div className="hidden md:flex flex-col items-end gap-2 text-right shrink-0">
                 <span className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/15 px-4 py-2 text-sm text-white/90">
                   <span className="font-semibold text-white">Sunday</span>
                   <span className="text-white/50">·</span>

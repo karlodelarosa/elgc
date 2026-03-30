@@ -20,7 +20,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-black text-white px-6 py-16 flex items-center justify-center">
+    <div className="min-h-screen w-full bg-black text-white px-6 py-16 flex items-center justify-center mt-6">
       <motion.div
         className="flex flex-col md:flex-row gap-12 max-w-7xl w-full"
         variants={container}
@@ -44,11 +44,15 @@ export default function ContactPage() {
             simply want to connect, feel free to send us a message and our team will respond soon.
           </motion.p>
 
+          <div className="pt-12 lg:hidden">
+            <ContactForm />
+          </div>
+
           {/* CONTACT DETAILS */}
           <motion.div className="flex flex-col gap-6 mt-4" variants={item}>
             <div className="flex items-start gap-4">
               <MapPin className="text-purple-400 mt-1" size={22} />
-              <div>
+              <div className="text-left">
                 <p className="font-medium">Emmanuel&apos;s Living Gospel Church</p>
                 <p className="text-zinc-400">
                   1948 Saint Joseph Avenue, Caloocan Metro Manila, Philippines
@@ -58,7 +62,7 @@ export default function ContactPage() {
 
             <div className="flex items-start gap-4">
               <Mail className="text-purple-400 mt-1" size={22} />
-              <div>
+              <div className="text-left">
                 <p className="font-medium">Email</p>
                 <p className="text-zinc-400">elgcchurch@gmail.com</p>
               </div>
@@ -66,7 +70,7 @@ export default function ContactPage() {
 
             <div className="flex items-start gap-4">
               <Phone className="text-purple-400 mt-1" size={22} />
-              <div>
+              <div className="text-left">
                 <p className="font-medium">Phone</p>
                 <p className="text-zinc-400">+63 919 061 8179</p>
               </div>
@@ -74,7 +78,7 @@ export default function ContactPage() {
 
             <div className="flex items-start gap-4">
               <Clock className="text-purple-400 mt-1" size={22} />
-              <div>
+              <div className="text-left">
                 <p className="font-medium">Service Schedule</p>
                 <p className="text-zinc-400 mb-1">Sunday Worship Service — 9:00 AM</p>
                 <a
@@ -90,7 +94,7 @@ export default function ContactPage() {
 
         {/* RIGHT COLUMN (FORM) */}
         <motion.div
-          className="flex-1 flex flex-col justify-center items-center w-full"
+          className="flex-1 flex flex-col justify-center items-center w-full hidden lg:flex"
           variants={item}
         >
           <motion.div

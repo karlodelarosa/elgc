@@ -3,6 +3,7 @@
 import { useRef, useEffect, ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
+import { cn } from '@/lib/utils';
 
 export function PlasmaButton({ label = 'Ignite' }) {
   const btnRef = useRef<HTMLButtonElement>(null);
@@ -253,10 +254,11 @@ export function FrostButton({ label = 'Freeze Time' }) {
 
 type QuantumButtonProps = {
   children: ReactNode;
+  className?: string;
   onClick?: () => void;
 };
 
-export function QuantumButton({ children, onClick }: QuantumButtonProps) {
+export function QuantumButton({ children, className = '', onClick }: QuantumButtonProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -292,7 +294,10 @@ export function QuantumButton({ children, onClick }: QuantumButtonProps) {
       onClick={handleClick}
       whileHover={{ scale: 1.08 }}
       whileTap={{ scale: 0.95 }}
-      className="relative overflow-hidden px-6 py-4 rounded-full text-white bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center"
+      className={cn(
+        'relative overflow-hidden px-6 py-4 rounded-full text-white bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center',
+        className,
+      )}
     >
       <div ref={ref} className="absolute inset-0 overflow-visible" />
 

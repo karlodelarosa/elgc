@@ -64,14 +64,7 @@ export function ScrollButton({ onClick }: ScrollButtonProps) {
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
     >
-      <motion.div
-        animate={{ y: [0, 6, 0] }}
-        transition={{
-          duration: 1.6,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
-      >
+      <motion.div>
         <ArrowDown size={16} />
       </motion.div>
     </motion.button>

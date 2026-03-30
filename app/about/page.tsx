@@ -41,7 +41,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="w-full bg-black text-white relative overflow-hidden pt-32">
+    <div className="w-full bg-black text-white relative overflow-hidden pt-10 lg:pt-32">
       {/* BELIEFS FIRST (important for visitors) */}
       <motion.section
         className="w-full py-20 px-6 flex flex-col items-center text-center space-y-6 bg-black/50"
@@ -51,7 +51,7 @@ export default function AboutPage() {
         transition={{ duration: 1 }}
       >
         <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 via-blue-300 to-purple-300">
-          Our Beliefs
+          Our Faith
         </h2>
 
         <p className="text-white/80 max-w-3xl text-lg md:text-xl">
@@ -172,7 +172,7 @@ export default function AboutPage() {
 
       {/* CTA */}
       <div className="relative w-full flex justify-center py-16 z-20">
-        <Link href="/visit">
+        <Link href="/life-at-church">
           <motion.button
             className="px-4 py-2 rounded-lg border border-white/40 text-white/60 text-sm font-medium opacity-70 hover:opacity-100 transition-all duration-300 backdrop-blur-sm"
             whileHover={{ scale: 1.05 }}

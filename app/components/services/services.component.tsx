@@ -116,7 +116,7 @@ export function Services() {
           transition={{ delay: 0.4 }}
           className="mt-24 text-center"
         >
-          <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-10 max-w-3xl mx-auto hover:shadow-lg transition">
+          <div className="bg-zinc-900 border border-zinc-800 rounded-2xl px-6 py-8 lg:p-10 max-w-3xl mx-auto hover:shadow-lg transition">
             <Users className="mx-auto mb-4 text-purple-400" size={40} />
 
             <h3 className="text-2xl mb-4">Bible Study & Household Groups</h3>

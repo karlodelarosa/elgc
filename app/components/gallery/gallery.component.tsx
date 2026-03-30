@@ -135,10 +135,12 @@ export function Gallery() {
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-              <div className="absolute bottom-12 left-12">
-                <h3 className="text-6xl bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">
-                  {image.title}
-                </h3>
+              <div className="absolute bottom-12 w-full">
+                <div className="px-6 lg:px-12">
+                  <h3 className="text-4xl lg:text-6xl bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">
+                    {image.title}
+                  </h3>
+                </div>
               </div>
             </div>
           </div>
