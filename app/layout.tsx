@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Anton, Montserrat, Six_Caps } from 'next/font/google';
 import { TopMenu } from '@/components/menu/top-menu.component';
+import { Footer } from '@/components/menu/footer-menu.component';
 import './globals.css';
 
 const anton = Anton({
@@ -113,6 +114,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           }}
         />
         {children}
+        <Footer />
       </body>
     </html>
   );
