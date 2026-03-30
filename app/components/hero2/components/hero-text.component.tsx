@@ -1,16 +1,14 @@
 // HeroText.tsx
 import { motion, AnimatePresence } from 'framer-motion';
-import { QuantumButton } from '@/components/button';
 import { useState, useEffect } from 'react';
+import { ScrollButton } from '../../ui/scroll-button/scroll-button.component';
 
 export type HeroTextProps = {
   lines?: string[];
-  buttonLabel?: string;
 };
 
 export function HeroText({
   lines = ["Experience God's love in a community that welcomes you", ''],
-  buttonLabel = 'Enter Experience',
 }: HeroTextProps) {
   const [currentLine, setCurrentLine] = useState(0);
 
@@ -23,14 +21,14 @@ export function HeroText({
     return () => clearInterval(interval);
   }, [lines]);
 
-  const scrollToSection = () => {
-    const el = document.getElementById('church-intro');
-    if (el) {
-      const yOffset = -50; // 50px above
-      const y = el.getBoundingClientRect().top + window.scrollY + yOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
-    }
-  };
+  // const scrollToSection = () => {
+  //   const el = document.getElementById('church-intro');
+  //   if (el) {
+  //     const yOffset = -50; // 50px above
+  //     const y = el.getBoundingClientRect().top + window.scrollY + yOffset;
+  //     window.scrollTo({ top: y, behavior: 'smooth' });
+  //   }
+  // };
 
   return (
     <div className="absolute bottom-28 lg:bottom-24 z-30 w-full text-center px-6 flex flex-col items-center gap-6">
@@ -50,9 +48,17 @@ export function HeroText({
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1.2, delay: 3.5 }}
+        transition={{ duration: 1.2, delay: 4 }}
+        className="flex flex-col items-center justify-center gap-6"
       >
-        <QuantumButton label={buttonLabel} onClick={scrollToSection} />
+        <ScrollButton />
+
+        <a
+          href="/new-here"
+          className=" text-white/90 hover:text-white text-xs tracking-widest underline underline-offset-4"
+        >
+          NEW HERE?
+        </a>
       </motion.div>
     </div>
   );

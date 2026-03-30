@@ -43,9 +43,12 @@ export default function DonatePage() {
           </motion.h1>
 
           <motion.p className="text-gray-300 text-lg md:text-xl max-w-xl" variants={item}>
-            Your interest and encouragement help us move forward in our mission: building a new
-            church space, supporting ministries, and reaching the community. Let us know how you’d
-            like to get involved.
+            Our church is growing, and we are believing God for a bigger space to serve our
+            community. We also continue to support ministries that reach people of all ages.
+            <br />
+            <br />
+            If you feel led to support this vision — through prayer, volunteering, resources, or
+            financial help — we would love to hear from you.
           </motion.p>
         </motion.div>
 

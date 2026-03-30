@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
 
@@ -251,52 +251,52 @@ export function FrostButton({ label = 'Freeze Time' }) {
   );
 }
 
-export type QuantumButtonProps = {
-  label?: string;
+type QuantumButtonProps = {
+  children: ReactNode;
   onClick?: () => void;
 };
 
-export function QuantumButton({ label = 'Execute', onClick }: QuantumButtonProps) {
+export function QuantumButton({ children, onClick }: QuantumButtonProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const container = ref.current;
     if (!container) return;
 
-    // Ripple effect
     const rect = container.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
     const ring = document.createElement('div');
-    ring.className = 'absolute border border-cyan-400/50 rounded-full pointer-events-none';
-    ring.style.left = `${x - 25}px`;
-    ring.style.top = `${y - 25}px`;
-    ring.style.width = '50px';
-    ring.style.height = '50px';
+    ring.className = 'absolute border border-white/40 rounded-full pointer-events-none';
+    ring.style.left = `${x - 20}px`;
+    ring.style.top = `${y - 20}px`;
+    ring.style.width = '40px';
+    ring.style.height = '40px';
+
     container.appendChild(ring);
 
     gsap.to(ring, {
-      scale: 8,
+      scale: 6,
       opacity: 0,
-      duration: 1.4,
+      duration: 1.2,
       ease: 'power2.out',
       onComplete: () => ring.remove(),
     });
 
-    // Call external onClick if provided (e.g., scroll)
     if (onClick) onClick();
   };
 
   return (
     <motion.button
       onClick={handleClick}
-      whileHover={{ scale: 1.05, boxShadow: '0 0 25px rgba(254, 254, 254, 0.4)' }}
+      whileHover={{ scale: 1.08 }}
       whileTap={{ scale: 0.95 }}
-      className="relative overflow-hidden px-10 py-4 rounded-full text-white bg-white/10 backdrop-blur-xl border border-white/20"
+      className="relative overflow-hidden px-6 py-4 rounded-full text-white bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center"
     >
       <div ref={ref} className="absolute inset-0 overflow-visible" />
-      <span className="relative z-10 tracking-wide">{label}</span>
+
+      <span className="relative z-10 flex items-center justify-center">{children}</span>
     </motion.button>
   );
 }
