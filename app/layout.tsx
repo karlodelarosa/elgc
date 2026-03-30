@@ -22,7 +22,7 @@ const sixCaps = Six_Caps({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://elgcchurch.org'), // change to your domain
+  metadataBase: new URL('https://elgchurch.com'), // change to your domain
 
   title: {
     default: "Emmanuel's Living Gospel Church | Caloocan City, Metro Manila",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     title: "Emmanuel's Living Gospel Church",
     description:
       'Join us for worship, discipleship, and fellowship in Caloocan City, Metro Manila.',
-    url: 'https://elgcchurch.org',
+    url: 'https://elgchurch.com',
     siteName: 'ELGC Church',
     locale: 'en_PH',
     type: 'website',
@@ -98,7 +98,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               '@context': 'https://schema.org',
               '@type': 'Church',
               name: "Emmanuel's Living Gospel Church",
-              url: 'https://elgcchurch.org',
+              url: 'https://elgchurch.com',
               address: {
                 '@type': 'PostalAddress',
                 addressLocality: 'Caloocan City',
