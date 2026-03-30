@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Facebook, Instagram, Youtube, Heart } from 'lucide-react';
+import { Mail, Phone, MapPin, Facebook, Instagram } from 'lucide-react';
 import Link from 'next/link';
 
 // TikTok Icon as a React component
@@ -57,7 +57,7 @@ export function Footer() {
             ELGC
           </h2>
           <p className="text-gray-300 text-sm">
-            Emmanuel's Living Gospel Church
+            Emmanuel&apos;s Living Gospel Church
             <br />
             1948 Saint Joseph Avenue, Caloocan, Metro Manila
           </p>
@@ -129,7 +129,7 @@ export function Footer() {
       </motion.div>
 
       <div className="mt-12 border-t border-white/10 pt-6 text-center text-gray-500 text-sm">
-        &copy; {new Date().getFullYear()} Emmanuel's Living Gospel Church. All rights reserved.
+        &copy; {new Date().getFullYear()} Emmanuel&apos;s Living Gospel Church. All rights reserved.
       </div>
     </footer>
   );
