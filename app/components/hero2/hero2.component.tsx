@@ -184,7 +184,7 @@ export function Hero2() {
       </motion.div>
 
       {/* Content */}
-      <HeroText lines={heroTextData.lines} buttonLabel={heroTextData.buttonLabel} />
+      <HeroText lines={heroTextData.lines} />
 
       {/* Vignette */}
       <div
