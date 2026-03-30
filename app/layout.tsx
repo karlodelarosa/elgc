@@ -40,6 +40,10 @@ export const metadata: Metadata = {
     'Bible believing church Metro Manila',
     'evangelical church Philippines',
     'youth church Caloocan',
+    'fellowship',
+    'bible',
+    'ministry',
+    'music',
   ],
 
   openGraph: {
@@ -52,7 +56,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/img/elgc.png',
+        url: '/img/elgc-thumbnail.jpg',
         width: 1200,
         height: 630,
         alt: "Emmanuel's Living Gospel Church",
@@ -64,7 +68,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Emmanuel's Living Gospel Church",
     description: 'A Bible-believing church in Caloocan City, Metro Manila.',
-    images: ['/img/elgc.png'],
+    images: ['/img/elgc-thumbnail.jpg'],
   },
 
   icons: {
