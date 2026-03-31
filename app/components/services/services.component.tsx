@@ -29,7 +29,7 @@ export function Services() {
     {
       name: 'Ladies Fellowship',
       day: 'Thursday',
-      time: '5:00 PM',
+      time: '3:00 PM',
       description: 'Encouragement, prayer, and fellowship for women.',
     },
     {
@@ -82,7 +82,7 @@ export function Services() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: index * 0.08 }}
-              className={`p-7 rounded-2xl border transition-transform duration-300 hover:scale-105 hover:shadow-lg ${
+              className={`p-5 lg:p-7 rounded-2xl border transition-transform duration-300 hover:scale-105 hover:shadow-lg ${
                 service.highlight
                   ? 'bg-gradient-to-br from-purple-700/40 to-indigo-700/40 border-purple-500'
                   : 'bg-zinc-900 border-zinc-800'

@@ -47,7 +47,7 @@ const trainings = [
 
 export default function LifeAtChurchPage() {
   return (
-    <div className="w-full bg-black text-white relative overflow-hidden">
+    <div className="w-full bg-black text-white relative overflow-hidden pt-10">
       <section className="relative w-full h-[50vh] flex flex-col justify-center items-center text-center px-6">
         <motion.h1
           className="text-5xl md:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 via-blue-300 to-purple-300"
