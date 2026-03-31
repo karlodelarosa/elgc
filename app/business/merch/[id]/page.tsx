@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Star, ShoppingCart, Heart } from 'lucide-react';
+import { Star } from 'lucide-react';
 import { MessengerButton } from './components/messenger.component';
 
 import { Copy } from 'lucide-react';
@@ -144,7 +144,7 @@ export default function ProductPage() {
             {['description', 'specs', 'reviews'].map((t) => (
               <button
                 key={t}
-                onClick={() => setTab(t as any)}
+                onClick={() => setTab(t as 'description' | 'specs' | 'reviews')}
                 className={`capitalize px-5 py-2 rounded-full text-sm transition-all duration-300
           
           ${

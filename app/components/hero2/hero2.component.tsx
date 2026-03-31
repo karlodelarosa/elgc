@@ -5,7 +5,6 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion } from 'framer-motion';
 import { HeroText } from './components/hero-text.component';
-import { HeroHeadline } from './components/hero-headline.component';
 
 gsap.registerPlugin(ScrollTrigger);
 

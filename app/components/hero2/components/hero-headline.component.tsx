@@ -13,6 +13,7 @@ export function HeroHeadline() {
 
   useEffect(() => {
     let seqIndex = 0;
+    console.log(index);
 
     const scrambleTo = (target: string, speed = 50) => {
       let frame = 0;
