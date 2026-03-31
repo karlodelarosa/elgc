@@ -262,3 +262,20 @@ body {
 .animate-color-shift {
   animation: color-shift 30s ease-in-out infinite;
 }
+
+@keyframes emmanuelGlow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.5))
+      drop-shadow(0 0 40px rgba(236, 72, 153, 0.35));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 35px rgba(168, 85, 247, 0.7))
+      drop-shadow(0 0 60px rgba(236, 72, 153, 0.5));
+  }
+}
+
+.animate-emmanuel-glow {
+  animation: emmanuelGlow 6s ease-in-out infinite;
+}
