@@ -1,11 +1,11 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Filter, Grid3x3, Grid2x2, LayoutGrid, X } from 'lucide-react';
-import { ImageWithFallback } from '../components/ui/image-with-fallback/image-with-fallback';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,6 +15,12 @@ interface GalleryImage {
   title: string;
   category: string;
   date: string;
+
+  sermonTitle?: string;
+  verse?: string;
+  message?: string;
+  speaker?: string;
+  takeaway?: string;
 }
 
 const CATEGORIES = {
@@ -122,6 +128,13 @@ const galleryImages: GalleryImage[] = [
     title: 'Sunday Worship Service',
     category: 'Worship',
     date: '2026-03-29',
+    sermonTitle: 'God Is With Us',
+    verse: 'Matthew 1:23',
+    message:
+      'No matter what season of life you are in, remember that God is present. His presence gives peace, direction, and hope for tomorrow.',
+    takeaway:
+      'God’s promise of Emmanuel reminds us that we are never alone. In every season, whether joyful or difficult. His presence remains constant. He guides our steps, strengthens our hearts, and fills us with peace. Our hope does not depend on circumstances but on the faithful God who walks with us.',
+    speaker: 'Bishop Charlie Rosal',
   },
   {
     id: 31,
@@ -175,9 +188,9 @@ export default function GalleryPage() {
   return (
     <div className="min-h-screen bg-black text-white pt-36">
       {/* Controls */}
+
       <div className="container mx-auto px-6 py-8 sticky top-0 z-40 bg-black/80 backdrop-blur-lg border-b border-white/10">
         <div className="flex flex-wrap items-center justify-between gap-4">
-          {/* Left side - Filter button and categories */}
           <div className="flex items-center gap-4 flex-1">
             <button
               onClick={() => setShowFilters(!showFilters)}
@@ -187,7 +200,6 @@ export default function GalleryPage() {
               <span className="hidden sm:inline">Filters</span>
             </button>
 
-            {/* Category pills - hidden on mobile, shown when filters open */}
             <div className={`flex-wrap gap-2 ${showFilters ? 'flex' : 'hidden md:flex'}`}>
               {CATEGORY_VALUES.map((category) => (
                 <button
@@ -205,13 +217,10 @@ export default function GalleryPage() {
             </div>
           </div>
 
-          {/* Right side - Sort and grid controls */}
           <div className="flex items-center gap-3">
             <select
               value={sortBy}
-              onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-                setSortBy(e.target.value as 'date-desc' | 'date-asc' | 'title')
-              }
+              onChange={(e) => setSortBy(e.target.value as 'date-desc' | 'date-asc' | 'title')}
               className="px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg border border-white/10 text-white cursor-pointer transition-colors"
             >
               <option value="date-desc">Newest First</option>
@@ -228,6 +237,7 @@ export default function GalleryPage() {
               >
                 <Grid3x3 size={18} />
               </button>
+
               <button
                 onClick={() => setGridSize('medium')}
                 className={`p-2 rounded transition-colors ${
@@ -238,6 +248,7 @@ export default function GalleryPage() {
               >
                 <Grid2x2 size={18} />
               </button>
+
               <button
                 onClick={() => setGridSize('large')}
                 className={`p-2 rounded transition-colors ${
@@ -252,6 +263,7 @@ export default function GalleryPage() {
       </div>
 
       {/* Gallery Grid */}
+
       <div className="container mx-auto px-6 py-12">
         <div className="mb-6 text-zinc-400">
           Showing {filteredImages.length} {filteredImages.length === 1 ? 'image' : 'images'}
@@ -262,22 +274,21 @@ export default function GalleryPage() {
             <motion.div
               key={image.id}
               className="gallery-item group cursor-pointer relative overflow-hidden rounded-2xl"
-              // onClick={() => setSelectedImage(image)}
+              onClick={() => setSelectedImage(image)}
               whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.3 }}
             >
               <div className="relative aspect-square overflow-hidden bg-zinc-900 group">
-                <ImageWithFallback
+                <Image
                   src={image.url}
                   alt={image.title}
                   fill
-                  className="transition-transform duration-500 group-hover:scale-110"
+                  sizes="(max-width:768px) 100vw, (max-width:1200px) 33vw, 25vw"
+                  className="transition-transform duration-500 group-hover:scale-110 object-cover"
                 />
 
-                {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                {/* Info overlay */}
                 <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                   <h3 className="text-lg font-semibold text-white mb-1">{image.title}</h3>
                   <div className="flex items-center gap-3 text-sm text-zinc-300">
@@ -299,14 +310,15 @@ export default function GalleryPage() {
         </div>
       </div>
 
-      {/* Lightbox Modal */}
+      {/* Modal */}
+
       <AnimatePresence>
         {selectedImage && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/95 backdrop-blur-xl"
+            className="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/95 backdrop-blur-xl"
             onClick={() => setSelectedImage(null)}
           >
             <button
@@ -320,30 +332,79 @@ export default function GalleryPage() {
               initial={{ scale: 0.9, y: 20 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.9, y: 20 }}
-              className="max-w-6xl w-full"
+              className="max-w-7xl w-full"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="relative rounded-2xl overflow-hidden mb-6">
-                <ImageWithFallback
-                  src={selectedImage.url}
-                  alt={selectedImage.title}
-                  className="w-full h-auto max-h-[70vh] object-contain"
-                />
-              </div>
+              <div className="grid md:grid-cols-2 bg-zinc-950 border border-white/10 rounded-2xl overflow-hidden">
+                <div className="relative w-full h-[70vh]">
+                  <Image
+                    src={selectedImage.url}
+                    alt={selectedImage.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
 
-              <div className="text-center">
-                <h2 className="text-3xl font-bold text-white mb-2">{selectedImage.title}</h2>
-                <div className="flex items-center justify-center gap-4 text-zinc-400">
-                  <span className="px-3 py-1 bg-white/10 rounded-full text-sm">
-                    {selectedImage.category}
-                  </span>
-                  <span>
-                    {new Date(selectedImage.date).toLocaleDateString('en-US', {
-                      month: 'long',
-                      day: 'numeric',
-                      year: 'numeric',
-                    })}
-                  </span>
+                <div className="flex flex-col justify-start p-10 items-start">
+                  {/* IMAGE TITLE */}
+
+                  <h2 className="text-3xl font-bold text-white mb-4">{selectedImage.title}</h2>
+
+                  {/* CATEGORY + DATE */}
+
+                  <div className="flex items-center gap-4 text-sm text-zinc-400 mb-6">
+                    <span className="px-3 py-1 bg-white/10 rounded-full">
+                      {selectedImage.category}
+                    </span>
+
+                    <span>
+                      {new Date(selectedImage.date).toLocaleDateString('en-US', {
+                        month: 'long',
+                        day: 'numeric',
+                        year: 'numeric',
+                      })}
+                    </span>
+                  </div>
+
+                  {/* SERMON CONTENT */}
+
+                  {selectedImage.sermonTitle && (
+                    <h3 className="text-xl font-semibold text-purple-400 mb-2">
+                      {selectedImage.sermonTitle}
+                    </h3>
+                  )}
+
+                  {selectedImage.verse && (
+                    <p className="text-zinc-400 italic mb-4">{selectedImage.verse}</p>
+                  )}
+
+                  {selectedImage.message && (
+                    <p className="text-zinc-300 leading-relaxed mb-6">{selectedImage.message}</p>
+                  )}
+
+                  {/* SPEAKER */}
+
+                  {selectedImage.speaker && (
+                    <div className="border-t border-white/10 pt-4 w-full mb-6">
+                      <p className="text-xs uppercase tracking-widest text-zinc-500 mb-1">
+                        Speaker
+                      </p>
+
+                      <p className="text-lg font-medium text-white">{selectedImage.speaker}</p>
+                    </div>
+                  )}
+
+                  {/* KEY TAKEAWAY */}
+
+                  {selectedImage.takeaway && (
+                    <div className="w-full bg-white/5 border border-white/10 rounded-xl p-5">
+                      <p className="text-xs uppercase tracking-widest text-zinc-500 mb-2">
+                        Key Takeaway
+                      </p>
+
+                      <p className="text-zinc-300 leading-relaxed">{selectedImage.takeaway}</p>
+                    </div>
+                  )}
                 </div>
               </div>
             </motion.div>
