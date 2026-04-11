@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { UserIcon, CalendarIcon, ImageIcon, UsersIcon, LucideIcon } from 'lucide-react';
+import { UserIcon, CalendarIcon, ImageIcon, UsersIcon, LucideIcon, BookA } from 'lucide-react';
 
 import { Drawer } from './components/drawer.component';
 import { MobileMenu } from './components/mobile-menu.component';
@@ -25,6 +25,7 @@ export const drawerMenu: MenuItemType[] = [
   { label: 'Ministries', icon: UsersIcon, url: '/ministries' },
   { label: 'Life at Church', icon: UsersIcon, url: '/life-at-church' },
   { label: 'Projects', icon: UsersIcon, url: '/projects' },
+  { label: 'Verse of the day', icon: BookA, url: '/daily-verse' },
 ];
 
 export function TopMenu() {

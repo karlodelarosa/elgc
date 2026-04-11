@@ -50,7 +50,7 @@ export default function DevotionalPage() {
         <img
           src={`https://picsum.photos/seed/${new Date().toDateString()}/1600/900`}
           className="w-full h-full object-cover"
-          alt="Daily devotional background"
+          alt="Daily verse background"
         />
 
         {/* DARK GRADIENT OVERLAY */}
@@ -59,9 +59,7 @@ export default function DevotionalPage() {
 
         {/* HERO TEXT */}
         <div className="absolute bottom-10 left-6 max-w-3xl">
-          <h1 className="text-3xl md:text-4xl font-bold text-white drop-shadow-md">
-            Daily Devotional
-          </h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-white drop-shadow-md">Daily Verse</h1>
 
           <p className="text-gray-200 mt-2 text-sm md:text-base">
             Word for today • {new Date().toDateString()}
@@ -81,8 +79,8 @@ export default function DevotionalPage() {
         </div>
 
         {/* REFLECTION */}
-        <div className="text-gray-300 leading-relaxed space-y-4">
-          <h2 className="text-xl font-semibold text-white">Reflection</h2>
+        <div className="text-gray-300 leading-relaxed">
+          <h2 className="text-xl font-semibold text-white mb-3">Reflection</h2>
 
           {reflection?.text?.map((t, i) => (
             <p key={i}>{t}</p>
@@ -93,7 +91,7 @@ export default function DevotionalPage() {
         <div className="mt-10">
           <h3 className="text-lg font-semibold text-white mb-3">Spiritual Insight</h3>
 
-          <div className="space-y-2 text-gray-300 leading-relaxed">
+          <div className="text-gray-300 leading-relaxed">
             {reflection?.spiritualInsight?.map((s, i) => (
               <p key={i}>{s}</p>
             ))}
@@ -104,7 +102,7 @@ export default function DevotionalPage() {
         <div className="mt-8">
           <h3 className="text-lg font-semibold text-white mb-3">Today’s Walk</h3>
 
-          <ul className="list-disc pl-5 text-gray-300 space-y-2">
+          <ul className="list-disc pl-5 text-gray-300">
             {reflection?.actions?.map((a, i) => (
               <li key={i}>{a}</li>
             ))}
