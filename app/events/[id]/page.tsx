@@ -4,11 +4,13 @@ import { events } from '@/lib/events';
 import { EventDetailPage } from '.';
 
 type Props = {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const event = events.find((e) => e.id === params.id);
+  const { id } = await params;
+
+  const event = events.find((e) => e.id === id);
 
   if (!event) return {};
 
@@ -45,8 +47,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function Page({ params }: Props) {
-  const event = events.find((e) => e.id === params.id);
+export default async function Page({ params }: Props) {
+  const { id } = await params;
+
+  const event = events.find((e) => e.id === id);
 
   if (!event) notFound();
 

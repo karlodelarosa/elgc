@@ -81,7 +81,7 @@ export function EventDetailPage({ event }: { event: Event }) {
 
       {/* DETAILS */}
       <section className="border-y border-white/10 py-6">
-        <div className="grid md:grid-cols-2 gap-6 max-w-xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
           <div className="flex items-center gap-3 text-zinc-300">
             <Calendar size={18} />
             <div>
