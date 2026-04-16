@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { X as XIcon } from 'lucide-react';
+import { X as XIcon, Compass } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 export interface MenuItemType {
